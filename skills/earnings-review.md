@@ -31,14 +31,15 @@
 
 ### 第一步：获取一手资料
 
-使用 Task 工具启动多个后台 Agent **并行**获取以下原始材料：
+使用原生工具与后台 Agent **并行**获取以下原始材料：
 
-1. **财报原文**：从公司IR页面、SEC EDGAR（美股10-K/10-Q）、港交所披露易（港股）、巨潮资讯网（A股）获取
-2. **业绩电话会纪要/录音**：从 Seeking Alpha、公司IR页面、雪球等获取
+1. **财报原文**：从公司 IR 页面、SEC EDGAR（美股 10-K/10-Q）、公开资讯观测站 MOPS（台股季报/月营收公告）获取
+2. **业绩电话会纪要/录音**：从 Seeking Alpha、公司 IR 页面等获取
 3. **管理层致股东信**（如有年报）：完整阅读
-4. **投资者日/分析师日材料**（如近期有）
+4. **月营收数据**（台股必做）：调用 `python tools/twstock_data.py revenue {stock_id}` 跟踪近 13 个月月营收
+5. **投资者日/分析师日材料**（如近期有）
 
-如果无法获取完整原文，按 `skills/financial-data.md` 规范使用标准数据源拼凑（美股：macrotrends+stockanalysis；港股：aastocks+macrotrends；A股：东方财富+巨潮资讯；台股：FinMind `tools/twstock_data.py`+Goodinfo），但必须标注"非原始财报，来自第三方汇总"，且关键数据两源误差>1%须标记。
+如果无法获取完整原文，按 `skills/financial-data.md` 规范使用标准数据源（美股：`tools/usstock_data.py` + macrotrends / stockanalysis；台股：FinMind `tools/twstock_data.py` + Goodinfo / MOPS），但必须标注"非原始财报，来自第三方汇总"，且关键数据两源误差>1%须标记。
 
 ### 第二步：核心财务数据提取与验证
 

@@ -41,9 +41,11 @@ def fmt_number(d: Decimal, unit: str = "") -> str:
     """Format large numbers in human-readable form (亿/万亿/B/T)."""
     v = float(d)
     abs_v = abs(v)
-    if unit in ("亿", "亿元", "亿港元", "亿美元"):
-        if abs_v >= 10000:
+    if unit in ("亿", "亿元", "亿港元", "亿美元", "亿新台币", "億", "億元", "億新台幣", "億美元", "TWD", "USD"):
+        if abs_v >= 10000 and "亿" in unit:
             return f"{v/10000:.2f}万亿{unit[1:] if len(unit) > 1 else ''}"
+        if abs_v >= 10000 and "億" in unit:
+            return f"{v/10000:.2f}兆{unit[1:] if len(unit) > 1 else ''}"
         return f"{v:.2f}{unit}"
     if abs_v >= 1e12:
         return f"{v/1e12:.2f}T"

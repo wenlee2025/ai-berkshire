@@ -7,32 +7,50 @@
     "MRVL",
     "TSM"
   ],
-  "us_ai_app": [
+  "us_mega_app": [
     "GOOG",
     "META",
     "MSFT",
     "AMZN",
+    "AAPL",
     "CRM",
-    "NOW",
     "PLTR"
   ],
   "us_ai_infra": [
     "ETN",
     "PWR",
     "VRT",
-    "CRWV"
+    "CRWV",
+    "CEG"
   ],
-  "us_crypto": [
+  "us_fintech": [
     "COIN",
     "HOOD",
     "MSTR",
-    "CRCL"
+    "XYZ"
   ],
-  "hk_internet": [
-    "0700.HK",
-    "9888.HK",
-    "1024.HK",
-    "9992.HK"
+  "tw_semiconductor": [
+    "2330.TW",
+    "2454.TW",
+    "2379.TW",
+    "3034.TW",
+    "3661.TW",
+    "6415.TW"
   ],
-  "a_share": []
+  "tw_ai_hardware": [
+    "2317.TW",
+    "2382.TW",
+    "2327.TW",
+    "3231.TW",
+    "6669.TW",
+    "2308.TW",
+    "2059.TW"
+  ],
+  "tw_dividend_leaders": [
+    "2412.TW",
+    "2881.TW",
+    "2882.TW",
+    "2886.TW",
+    "3008.TW"
+  ]
 }

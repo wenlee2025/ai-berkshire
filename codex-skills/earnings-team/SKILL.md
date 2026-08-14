@@ -40,8 +40,8 @@ This skill is generated from `skills/earnings-team.md` so Claude Code and Codex 
 
 | 资料类型 | 获取来源 | 优先级 |
 |---------|---------|--------|
-| 财报原文 | 公司IR页面、SEC EDGAR（美股）、港交所披露易（港股）、巨潮资讯网（A股） | 最高 |
-| 业绩电话会纪要 | Seeking Alpha、公司IR页面、雪球 | 最高 |
+| 财报原文 | 公司 IR 页面、SEC EDGAR（美股 10-K/10-Q）、MOPS 公开资讯观测站（台股季报/月营收入） | 最高 |
+| 业绩电话会纪要 | Seeking Alpha、公司 IR 页面、Transcript 汇编 | 最高 |
 | 管理层致股东信 | 年报中提取 | 高（仅年报时） |
 | 上一期财报/电话会 | 同上 | 高（用于承诺追踪） |
 
