@@ -20,6 +20,9 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 TOOLS_DIR = os.path.join(BASE_DIR, "tools")
 SCRIPTS_DIR = os.path.join(BASE_DIR, "scripts")
 
+if TOOLS_DIR not in sys.path:
+    sys.path.insert(0, TOOLS_DIR)
+
 def _force_utf8():
     for s in (sys.stdout, sys.stderr):
         try:
@@ -29,35 +32,82 @@ def _force_utf8():
 
 _force_utf8()
 
+import market_data_engine
+
 
 def cmd_research(args):
     """執行四大家深度個股研究。"""
     ticker = args.ticker.strip()
-    print(f"\n👑 [AI Berkshire] 啟動四大家深度研究: {ticker} ...\n")
-    # 調用 twstock_data / usstock_data 與 dashboard payload 生成分析
-    is_tw = any(ticker.endswith(x) for x in (".TW", ".TWO")) or (ticker.isdigit() and len(ticker) == 4)
-    if is_tw:
-        stock_id = ticker.replace(".TW", "").replace(".TWO", "")
-        subprocess.run([sys.executable, os.path.join(TOOLS_DIR, "twstock_data.py"), "quote", stock_id])
-        subprocess.run([sys.executable, os.path.join(TOOLS_DIR, "twstock_data.py"), "financials", stock_id])
-        subprocess.run([sys.executable, os.path.join(TOOLS_DIR, "twstock_data.py"), "revenue", stock_id])
-    else:
-        subprocess.run([sys.executable, os.path.join(TOOLS_DIR, "usstock_data.py"), "quote", ticker])
-        subprocess.run([sys.executable, os.path.join(TOOLS_DIR, "usstock_data.py"), "financials", ticker])
+    engine = market_data_engine.DEFAULT_ENGINE
+    bundle = engine.get_full_bundle(ticker)
+    
+    print("\n" + "=" * 68)
+    print(f"👑 AI Berkshire 四大家深度投資研究: {bundle.symbol} ({bundle.name})")
+    print("=" * 68)
+    print(f"  最新股價:    {bundle.price:.2f} {bundle.currency} ({bundle.change_pct:+.2f}%)")
+    print(f"  發行股數:    {bundle.shares_formatted}")
+    print(f"  手算市值:    {bundle.market_cap_formatted}")
+    print(f"  所屬板塊:    {bundle.sector}")
+    
+    # 評級與評分
+    synth = bundle.synthesis
+    scores = synth.get("radar_scores", {})
+    print(f"  綜合評級:    {synth.get('verdict_label', '觀察')}")
+    print(f"  綜合評分:    {scores.get('composite', 4.0):.1f} / 5.0")
+    print("-" * 68)
+    print(f"  ⚡ TTM Squeeze: {bundle.ttm_squeeze.get('status_label', '常態')}")
+    kelly = bundle.kelly_sizing
+    if kelly:
+        ev = kelly.get("ev_data", {})
+        stop_p = bundle.price - ev.get("risk", bundle.price * 0.08)
+        print(f"  📐 半凱利建議: 配置比例 {kelly.get('applied_allocation_pct', 20.0):.1f}%, 建議買進 {kelly.get('suggested_shares', 0):,} 股 (建議停損: ${stop_p:.1f})")
+    
+    # 四大師視角精要
+    print("-" * 68)
+    print(f"  [段永平] {synth.get('dyp', {}).get('business_essence', '')}")
+    print(f"  [巴菲特] {synth.get('buffett', {}).get('moat', '')}")
+    print(f"  [芒  格] {synth.get('munger', {}).get('inversion', '')}")
+    print(f"  [李  錄] {synth.get('lilu', {}).get('civilization', '')}")
+    
+    # 論文支柱與 Kill Criteria
+    thesis = synth.get("thesis", {})
+    pillars = thesis.get("pillars", [])
+    if pillars:
+        print("\n  🎯 核心論文三支柱:")
+        for p in pillars:
+            print(f"    • {p}")
+    
+    kill_criteria = thesis.get("kill_criteria", [])
+    if kill_criteria:
+        print("\n  ⚠️ 證偽與賣出清單 (Kill Criteria):")
+        for k in kill_criteria:
+            print(f"    • {k}")
+    print("=" * 68 + "\n")
 
 
 def cmd_review(args):
-    """執行財報精讀。"""
+    """執行財報精讀與月營收分析。"""
     ticker = args.ticker.strip()
     period = args.period or "最新"
-    print(f"\n📊 [AI Berkshire] 執行財報精讀: {ticker} ({period}) ...\n")
-    is_tw = any(ticker.endswith(x) for x in (".TW", ".TWO")) or (ticker.isdigit() and len(ticker) == 4)
-    if is_tw:
-        stock_id = ticker.replace(".TW", "").replace(".TWO", "")
-        subprocess.run([sys.executable, os.path.join(TOOLS_DIR, "twstock_data.py"), "financials", stock_id])
-        subprocess.run([sys.executable, os.path.join(TOOLS_DIR, "twstock_data.py"), "revenue", stock_id])
-    else:
-        subprocess.run([sys.executable, os.path.join(TOOLS_DIR, "usstock_data.py"), "financials", ticker])
+    engine = market_data_engine.DEFAULT_ENGINE
+    bundle = engine.get_full_bundle(ticker)
+    
+    print("\n" + "=" * 68)
+    print(f"📊 AI Berkshire 財報精讀與營收脈搏: {bundle.symbol} ({bundle.name}) [{period}]")
+    print("=" * 68)
+    er = bundle.synthesis.get("earnings_review", {})
+    print(f"  重點摘要:    {er.get('headline', '')}")
+    print(f"  獲利體檢:    {er.get('h1_summary', '')}")
+    print(f"  月營收趨勢:  {er.get('monthly_revenue_signal', '')}")
+    print(f"  指引達成度:  {er.get('guidance_check', '')}")
+    
+    # 最近 5 個月營收列印
+    if bundle.monthly_revenue:
+        print("\n  近幾月營收趨勢:")
+        for r in bundle.monthly_revenue[-5:]:
+            yoy_str = f"YoY: {r.get('yoy'):+.1f}%" if r.get('yoy') is not None else ""
+            print(f"    {r.get('date')}:  {r.get('revenue', 0):,.0f} 元  {yoy_str}")
+    print("=" * 68 + "\n")
 
 
 def cmd_screen(args):
@@ -154,8 +204,9 @@ def main():
         "sync": cmd_sync,
     }
 
-    if args.command in dispatch:
-        dispatch[args.command](args)
+    handler = dispatch.get(args.command)
+    if handler:
+        handler(args)
     else:
         parser.print_help()
 

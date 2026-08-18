@@ -75,3 +75,7 @@ _Avoid_: 忽視事實變化的靜態論文追蹤
 **Multi-Model Valuation Matrix (多模型產業適配估值矩陣)**:
 根據產業生命週期與商業模式特性（成長型、強週期型、重資產代工型），結合 FCF 反向 DCF、P/B 河流圖、EV/EBITDA 與葛拉漢淨流動資產 (NCAV)，提供統計信賴度估值區間。
 _Avoid_: 單一 P/E 公式套用全產業週期
+
+**MarketDataEngine (統一市場數據引擎 / 深度模組)**:
+遵循深度模組（Deep Module: 小介面 + 大實作）架構模式，對外部調用者（CLI、Dashboard、監控管線）僅呈現極簡介面（`get_quote`、`get_revenue`、`get_full_bundle`），內部高度封裝本地 SQLite 快取管理、雙源交叉驗證（誤差 ≤ 1%）、TTM Squeeze 4 態計算、半凱利持倉量化與跨市場降級適配。
+_Avoid_: 調用端自行組織多工具取數、無結構裸 dict 散落傳遞
