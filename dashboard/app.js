@@ -555,7 +555,7 @@
       const sq = d.ttm_squeeze || {};
       const vCls = s.verdict || "HOLD";
       const chgStr = `${d.change_pct >= 0 ? "+" : ""}${d.change_pct.toFixed(2)}%`;
-      const chgCls = d.change_pct >= 0 ? "color:#34d399;" : "color:#f87171;";
+      const chgCls = d.change_pct >= 0 ? "color:#ef4444; font-weight:700;" : "color:#10b981; font-weight:700;";
       const peStr = (d.valuation && d.valuation.per) ? `${d.valuation.per.toFixed(1)}x` : "-";
       const compScore = (s.radar_scores && s.radar_scores.composite) ? s.radar_scores.composite.toFixed(1) : "4.0";
 
