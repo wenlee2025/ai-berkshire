@@ -98,15 +98,15 @@ AI's greatest danger isn't giving wrong answers — it's giving answers that **l
 
 ### 4. Financial Data Precision
 
-LLMs can't do mental math reliably. Getting a P/E wrong by one decimal point or confusing HKD with CNY can lead to catastrophic investment decisions.
+LLMs can't do mental math reliably. Getting a P/E wrong by one decimal point or confusing TWD with USD can lead to catastrophic investment decisions.
 
-**Real case**: When analyzing Tencent, different sources reported market cap in "HKD billions" and "CNY billions." AI Berkshire's approach:
+**Real case**: When analyzing TSMC (2330.TW), different sources reported market cap in "TWD billions" and ADR equivalents. AI Berkshire's approach:
 
 ```bash
 # Market cap manual verification: Price × Shares Outstanding, cross-checked with reported data
 python3 tools/financial_rigor.py verify-market-cap \
-  --price 510 --shares 9.11e9 --reported 4.65e12 --currency HKD
-# ✅ Verified — deviation only 0.08%
+  --price 2400.0 --shares 25.93e9 --reported 6.2232e13 --currency TWD
+# ✅ Verified — deviation only 0.00%
 ```
 
 All calculations use Python `decimal.Decimal` (exact decimal arithmetic), not `float`. Key data requires at least 2 independent sources for cross-validation.

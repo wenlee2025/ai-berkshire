@@ -38,13 +38,11 @@ def exact(value) -> Decimal:
 
 
 def fmt_number(d: Decimal, unit: str = "") -> str:
-    """Format large numbers in human-readable form (亿/万亿/B/T)."""
+    """Format large numbers in human-readable form (億/兆/B/T/M)."""
     v = float(d)
     abs_v = abs(v)
-    if unit in ("亿", "亿元", "亿港元", "亿美元", "亿新台币", "億", "億元", "億新台幣", "億美元", "TWD", "USD"):
-        if abs_v >= 10000 and "亿" in unit:
-            return f"{v/10000:.2f}万亿{unit[1:] if len(unit) > 1 else ''}"
-        if abs_v >= 10000 and "億" in unit:
+    if unit in ("億", "億元", "億新台幣", "億美元", "TWD", "USD"):
+        if abs_v >= 10000:
             return f"{v/10000:.2f}兆{unit[1:] if len(unit) > 1 else ''}"
         return f"{v:.2f}{unit}"
     if abs_v >= 1e12:
@@ -57,11 +55,7 @@ def fmt_number(d: Decimal, unit: str = "") -> str:
 
 
 def _force_utf8_stdio():
-    """把 stdout/stderr 强制切到 UTF-8。
-
-    Windows 控制台默认 GBK，本工具输出的 ❌ / ⚠️ / ✅ 会抛 UnicodeEncodeError，
-    导致「偏差超标」这条最该被看到的告警路径反而直接崩溃退出。
-    """
+    """把 stdout/stderr 強制切到 UTF-8。"""
     for stream in (sys.stdout, sys.stderr):
         try:
             stream.reconfigure(encoding='utf-8', errors='replace')
@@ -70,10 +64,10 @@ def _force_utf8_stdio():
 
 
 # ---------------------------------------------------------------------------
-# 1. Market Cap Verification (股价×总股本 vs 报告市值)
+# 1. Market Cap Verification (股價×總股本 vs 報告市值)
 # ---------------------------------------------------------------------------
 
-def verify_market_cap(price, shares, reported_cap, currency=""):
+def verify_market_cap(price, shares, reported_cap, currency="TWD"):
     """Verify market cap = price × shares, compare with reported value."""
     p = exact(price)
     s = exact(shares)
@@ -83,26 +77,27 @@ def verify_market_cap(price, shares, reported_cap, currency=""):
     deviation = abs(float(calculated - r) / float(r)) * 100 if r != 0 else 0
 
     print("=" * 60)
-    print("市值验算 (Market Cap Verification)")
+    print("市值驗算 (Market Cap Verification)")
     print("=" * 60)
-    print(f"  股价 (Price):       {p} {currency}")
-    print(f"  总股本 (Shares):    {fmt_number(s)}")
-    print(f"  计算市值:           {fmt_number(calculated)} {currency}")
-    print(f"  报告市值:           {fmt_number(r)} {currency}")
+    print(f"  股價 (Price):       {p} {currency}")
+    print(f"  總股本 (Shares):    {fmt_number(s)}")
+    print(f"  計算市值:           {fmt_number(calculated)} {currency}")
+    print(f"  報告市值:           {fmt_number(r)} {currency}")
     print(f"  偏差:               {deviation:.2f}%")
     print()
 
     if deviation > 5:
-        print(f"  ❌ 警告: 偏差 {deviation:.1f}% > 5%, 请检查:")
-        print(f"     - 股本是否为最新（回购/增发）?")
-        print(f"     - 单位是否一致（港币 vs 人民币 vs 美元）?")
-        print(f"     - 股价是否为最新?")
+        print(f"  ❌ 警告: 偏差 {deviation:.1f}% > 5%, 請檢查:")
+        print(f"     - 股本是否為最新（回購/增資/庫藏股註銷）?")
+        print(f"     - 幣種是否一致（新台幣 TWD vs 美元 USD）?")
+        print(f"     - 是否為 ADR（如 1 TSM ADR = 5 股 2330 原始股）?")
+        print(f"     - 股價是否為最新收盤價?")
         return False
     elif deviation > 1:
-        print(f"  ⚠️  偏差 {deviation:.1f}% 在可接受范围, 可能因股价波动/股本变化")
+        print(f"  ⚠️  偏差 {deviation:.1f}% 在可接受範圍, 可能因盤中股價波動/即時股本微調")
         return True
     else:
-        print(f"  ✅ 验证通过, 偏差仅 {deviation:.2f}%")
+        print(f"  ✅ 驗證通過, 偏差僅 {deviation:.2f}%")
         return True
 
 
