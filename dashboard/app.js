@@ -57,11 +57,33 @@
     if (val) analyzeStock(val);
   };
 
+  let currentScreenerFilter = "all";
+  let currentScreenerSort = { col: "composite", order: "desc" };
+
   window.filterScreener = function(filter, btn) {
+    currentScreenerFilter = filter;
     const filterBtns = document.querySelectorAll(".screener-filter-group .filter-btn");
     filterBtns.forEach(b => b.classList.remove("active"));
     if (btn) btn.classList.add("active");
-    renderScreenerTable(filter);
+    renderScreenerTable(currentScreenerFilter);
+  };
+
+  window.sortScreener = function(col, thEl) {
+    if (currentScreenerSort.col === col) {
+      currentScreenerSort.order = currentScreenerSort.order === "asc" ? "desc" : "asc";
+    } else {
+      currentScreenerSort.col = col;
+      currentScreenerSort.order = (col === "symbol" || col === "sector") ? "asc" : "desc";
+    }
+
+    // 更新表頭排序箭頭與樣式
+    const ths = document.querySelectorAll("#screenerTable th.sortable");
+    ths.forEach(th => th.classList.remove("sort-asc", "sort-desc"));
+    if (thEl) {
+      thEl.classList.add(currentScreenerSort.order === "asc" ? "sort-asc" : "sort-desc");
+    }
+
+    renderScreenerTable(currentScreenerFilter);
   };
 
   window.filterPeers = function(sector, btn) {
@@ -534,20 +556,73 @@
   }
 
   function renderScreenerTable(filter) {
+    const activeFilter = filter || currentScreenerFilter;
     const tbody = document.getElementById("screenerTableBody");
     if (!tbody) return;
     const keys = Object.keys(STOCKS_DATABASE).filter(k => k.endsWith(".TW"));
     if (keys.length === 0) return;
 
     let items = keys.map(k => STOCKS_DATABASE[k]);
-    if (filter !== "all") {
-      items = items.filter(it => it.synthesis && it.synthesis.verdict === filter);
+    if (activeFilter !== "all") {
+      items = items.filter(it => it.synthesis && it.synthesis.verdict === activeFilter);
     }
 
+    const { col, order } = currentScreenerSort;
+
     items.sort((a, b) => {
-      const sa = (a.synthesis && a.synthesis.radar_scores && a.synthesis.radar_scores.composite) || 0;
-      const sb = (b.synthesis && b.synthesis.radar_scores && b.synthesis.radar_scores.composite) || 0;
-      return sb - sa;
+      let valA, valB;
+      switch (col) {
+        case "symbol":
+          valA = a.symbol || "";
+          valB = b.symbol || "";
+          return order === "asc" ? valA.localeCompare(valB) : valB.localeCompare(valA);
+        case "sector":
+          valA = a.sector || "";
+          valB = b.sector || "";
+          return order === "asc" ? valA.localeCompare(valB, "zh-TW") : valB.localeCompare(valA, "zh-TW");
+        case "price":
+          valA = a.price || 0;
+          valB = b.price || 0;
+          break;
+        case "change_pct":
+          valA = a.change_pct || 0;
+          valB = b.change_pct || 0;
+          break;
+        case "pe":
+          valA = (a.valuation && a.valuation.per) || 0;
+          valB = (b.valuation && b.valuation.per) || 0;
+          break;
+        case "market_cap":
+          valA = a.market_cap_raw || 0;
+          valB = b.market_cap_raw || 0;
+          break;
+        case "ttm":
+          const getTtmWeight = (sq) => {
+            if (!sq) return 0;
+            if (sq.status === "SQUEEZE_FIRED_LONG" || sq.status === "MOMENTUM_EXPANDING_UP") return 3;
+            if (sq.status === "SQUEEZE_ON") return 2;
+            return 1;
+          };
+          valA = getTtmWeight(a.ttm_squeeze);
+          valB = getTtmWeight(b.ttm_squeeze);
+          break;
+        case "verdict":
+          const getVerdictWeight = (s) => {
+            if (!s) return 0;
+            if (s.verdict === "BUY_STRONG") return 3;
+            if (s.verdict === "BUY_STEADY") return 2;
+            return 1;
+          };
+          valA = getVerdictWeight(a.synthesis);
+          valB = getVerdictWeight(b.synthesis);
+          break;
+        case "composite":
+        default:
+          valA = (a.synthesis && a.synthesis.radar_scores && a.synthesis.radar_scores.composite) || 0;
+          valB = (b.synthesis && b.synthesis.radar_scores && b.synthesis.radar_scores.composite) || 0;
+          break;
+      }
+      return order === "asc" ? (valA - valB) : (valB - valA);
     });
 
     tbody.innerHTML = items.map(d => {

@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20260820_1">
+  <link rel="stylesheet" href="style.css?v=20260825_1">
 </head>
 <body>
   <!-- Header -->
@@ -695,15 +695,33 @@
             <table class="data-table screener-table" id="screenerTable">
               <thead>
                 <tr>
-                  <th style="text-align:left;">代碼 / 名稱</th>
-                  <th style="text-align:left;">所屬產業細分</th>
-                  <th>最新價 (TWD)</th>
-                  <th>漲跌幅</th>
-                  <th>本益比 (PE)</th>
-                  <th>手算總市值</th>
-                  <th>TTM Squeeze 狀態</th>
-                  <th>四大家綜合評分</th>
-                  <th>決策評級</th>
+                  <th class="sortable" onclick="window.sortScreener('symbol', this)" style="text-align:left;">
+                    <div class="th-content"><span>代碼 / 名稱</span><span class="sort-arrows"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></div>
+                  </th>
+                  <th class="sortable" onclick="window.sortScreener('sector', this)" style="text-align:left;">
+                    <div class="th-content"><span>所屬產業細分</span><span class="sort-arrows"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></div>
+                  </th>
+                  <th class="sortable" onclick="window.sortScreener('price', this)">
+                    <div class="th-content"><span>最新價 (TWD)</span><span class="sort-arrows"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></div>
+                  </th>
+                  <th class="sortable" onclick="window.sortScreener('change_pct', this)">
+                    <div class="th-content"><span>漲跌幅</span><span class="sort-arrows"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></div>
+                  </th>
+                  <th class="sortable" onclick="window.sortScreener('pe', this)">
+                    <div class="th-content"><span>本益比 (PE)</span><span class="sort-arrows"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></div>
+                  </th>
+                  <th class="sortable" onclick="window.sortScreener('market_cap', this)">
+                    <div class="th-content"><span>手算總市值</span><span class="sort-arrows"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></div>
+                  </th>
+                  <th class="sortable" onclick="window.sortScreener('ttm', this)">
+                    <div class="th-content"><span>TTM Squeeze 狀態</span><span class="sort-arrows"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></div>
+                  </th>
+                  <th class="sortable sort-desc" onclick="window.sortScreener('composite', this)">
+                    <div class="th-content"><span>四大家綜合評分</span><span class="sort-arrows"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></div>
+                  </th>
+                  <th class="sortable" onclick="window.sortScreener('verdict', this)">
+                    <div class="th-content"><span>決策評級</span><span class="sort-arrows"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></div>
+                  </th>
                   <th>操作</th>
                 </tr>
               </thead>
@@ -731,7 +749,7 @@
     </div>
   </main>
 
-  <script src="stocks_data.js?v=20260820_1"></script>
-  <script src="app.js?v=20260820_1"></script>
+  <script src="stocks_data.js?v=20260825_1"></script>
+  <script src="app.js?v=20260825_1"></script>
 </body>
 </html>

@@ -968,6 +968,70 @@ body {
   z-index: 10;
 }
 
+.screener-table th.sortable {
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.screener-table th.sortable:hover {
+  background-color: rgba(59, 130, 246, 0.18);
+  color: #93c5fd;
+}
+
+.th-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: inherit;
+}
+
+.sort-arrows {
+  display: inline-flex;
+  flex-direction: column;
+  font-size: 8px;
+  line-height: 7px;
+  color: var(--text-muted);
+  opacity: 0.45;
+  transition: all 0.15s ease;
+  user-select: none;
+  margin-left: 2px;
+}
+
+.screener-table th.sortable:hover .sort-arrows {
+  opacity: 0.9;
+  color: #93c5fd;
+}
+
+.screener-table th.sort-asc .sort-arrows {
+  opacity: 1;
+}
+
+.screener-table th.sort-asc .arrow-up {
+  color: #3b82f6;
+  font-weight: 900;
+  text-shadow: 0 0 6px rgba(59, 130, 246, 0.6);
+}
+
+.screener-table th.sort-asc .arrow-down {
+  opacity: 0.2;
+}
+
+.screener-table th.sort-desc .sort-arrows {
+  opacity: 1;
+}
+
+.screener-table th.sort-desc .arrow-down {
+  color: #3b82f6;
+  font-weight: 900;
+  text-shadow: 0 0 6px rgba(59, 130, 246, 0.6);
+}
+
+.screener-table th.sort-desc .arrow-up {
+  opacity: 0.2;
+}
+
 .screener-table tr {
   cursor: pointer;
   transition: background-color 0.15s ease;
