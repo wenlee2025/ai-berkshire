@@ -768,16 +768,27 @@ def main():
         all_db[f"{code}.TW"] = entry
         all_db[code] = entry
 
-    # 輸出到 JSON 檔案與 stocks_data.js
-    out_json = os.path.join(BASE_DIR, "dashboard", "stocks_db.json")
-    with open(out_json, "w", encoding="utf-8") as f:
-        json.dump(all_db, f, ensure_ascii=False, indent=2)
+    # 輸出到 JSON 檔案與 stocks_data.js (dashboard/ 與 docs/)
+    import shutil
+    for folder in ["dashboard", "docs"]:
+        target_dir = os.path.join(BASE_DIR, folder)
+        os.makedirs(target_dir, exist_ok=True)
+        out_json = os.path.join(target_dir, "stocks_db.json")
+        with open(out_json, "w", encoding="utf-8") as f:
+            json.dump(all_db, f, ensure_ascii=False, indent=2)
 
-    out_js = os.path.join(BASE_DIR, "dashboard", "stocks_data.js")
-    with open(out_js, "w", encoding="utf-8") as f:
-        f.write("window.STOCKS_DATABASE = " + json.dumps(all_db, ensure_ascii=False) + ";")
+        out_js = os.path.join(target_dir, "stocks_data.js")
+        with open(out_js, "w", encoding="utf-8") as f:
+            f.write("window.STOCKS_DATABASE = " + json.dumps(all_db, ensure_ascii=False) + ";")
 
-    print(f"\n✅ 成功生成 37 檔全量投研、專屬 Kill Criteria 與凱利數據庫: {out_json} & {out_js}")
+    # 同步前端模板至 docs/ (確保 GitHub Pages 雙模式即時生效)
+    for asset in ["index.html", "style.css", "app.js"]:
+        src = os.path.join(BASE_DIR, "dashboard", asset)
+        dst = os.path.join(BASE_DIR, "docs", asset)
+        if os.path.exists(src):
+            shutil.copy2(src, dst)
+
+    print(f"\n✅ 成功生成 37 檔全量投研、專屬 Kill Criteria 與凱利數據庫 (同步至 dashboard/ 與 docs/)")
 
 
 if __name__ == "__main__":

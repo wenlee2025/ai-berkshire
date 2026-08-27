@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Berkshire — 股票清單 37 檔全景投研與組合管理儀表板</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=20260827_1">
+</head>
+<body>
+  <!-- Header -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand">
+        <div class="brand-logo">AI</div>
+        <div class="brand-text">
+          <span class="brand-title">BERKSHIRE</span>
+          <span class="brand-subtitle">美股 · 台股 深度價值投資操作系統</span>
+        </div>
+      </div>
+      
+      <div class="search-section">
+        <div class="search-bar">
+          <select id="stockDropdown" class="stock-dropdown" title="選擇 37 檔核心標的" onchange="window.selectStock(this.value)">
+            <!-- Dynamically populated 37 stocks -->
+          </select>
+          <input type="text" id="tickerInput" placeholder="輸入代號或名稱 (如 2344, 台積電, NVDA)..." value="2344.TW" onkeydown="if(event.key==='Enter') window.searchStock()">
+          <button id="btnAnalyze" class="btn-primary" onclick="window.searchStock()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            深度分析
+          </button>
+        </div>
+        <div class="quick-chips" id="quickChips">
+          <span class="chip active" onclick="window.selectStock('2344.TW')">2344 華邦電</span>
+          <span class="chip" onclick="window.selectStock('2330.TW')">2330 台積電</span>
+          <span class="chip" onclick="window.selectStock('2317.TW')">2317 鴻海</span>
+          <span class="chip" onclick="window.selectStock('2327.TW')">2327 國巨</span>
+          <span class="chip" onclick="window.selectStock('3017.TW')">3017 奇鋐</span>
+          <span class="chip" onclick="window.selectStock('2059.TW')">2059 川湖</span>
+          <span class="chip" onclick="window.selectStock('5274.TW')">5274 信驊</span>
+          <span class="chip" onclick="window.selectStock('6669.TW')">6669 緯穎</span>
+          <span class="chip" onclick="window.selectStock('NVDA')">NVDA 輝達</span>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <label class="btn-upload" title="上傳自訂 Excel / CSV 股票清單">
+          <input type="file" id="fileUpload" accept=".xlsx, .xls, .csv" style="display:none;" onchange="window.handleFileUpload(event)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+          上傳清單
+        </label>
+        <button id="btnExportMarkdown" class="btn-secondary" title="導出 Markdown 報告" onclick="window.switchTab('tabMarkdown')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+          導出報告
+        </button>
+        <button id="btnPrint" class="btn-secondary" title="列印或存為 PDF" onclick="window.print()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="main-container">
+    <!-- Hero Summary Bar -->
+    <section class="hero-card" id="heroCard">
+      <div class="hero-main">
+        <div class="stock-identity">
+          <div class="stock-title-row">
+            <h1 class="stock-name" id="stockName">華邦電</h1>
+            <span class="stock-symbol" id="stockSymbol">2344.TW</span>
+            <span class="market-badge" id="marketBadge">TWSE 上市 · 利基型DRAM/NOR</span>
+            <span class="info-badge" id="infoRatingBadge">A級一手資料</span>
+          </div>
+          <div class="stock-date" id="stockDate">資料基準日：2026-08-14 · 數據工具鏈：SQLite Cache + FinMind + MOPS + financial_rigor.py</div>
+        </div>
+
+        <div class="price-box">
+          <div class="price-current" id="stockPrice">177.00 <span class="currency">TWD</span></div>
+          <div class="price-change" id="stockChange">+0.00 (+0.00%)</div>
+        </div>
+
+        <div class="verdict-banner" id="verdictBanner">
+          <div class="verdict-label">綜合決策評級</div>
+          <div class="verdict-text" id="verdictText">🎯 強烈買入 / 超級週期拐點爆發</div>
+        </div>
+      </div>
+
+      <div class="hero-metrics-grid">
+        <div class="metric-item">
+          <div class="metric-title">精確手算總市值</div>
+          <div class="metric-value highlight" id="metricMarketCap">7,965.0 億 TWD</div>
+          <div class="metric-sub" id="metricShares">45.00億股 · 驗算偏差 0.00% ✅</div>
+        </div>
+
+        <div class="metric-item">
+          <div class="metric-title">本益比 (P/E)</div>
+          <div class="metric-value" id="metricPE">10.50x</div>
+          <div class="metric-sub" id="metricForwardPE">2026 前瞻 P/E 約 10.2x</div>
+        </div>
+
+        <div class="metric-item">
+          <div class="metric-title">股價淨值比 (P/B)</div>
+          <div class="metric-value" id="metricPB">4.83x</div>
+          <div class="metric-sub">淨值穩步抬升</div>
+        </div>
+
+        <div class="metric-item">
+          <div class="metric-title">現金殖利率</div>
+          <div class="metric-value" id="metricYield">2.80%</div>
+          <div class="metric-sub">成長期盈餘再投資</div>
+        </div>
+
+        <div class="metric-item range-item">
+          <div class="metric-title">52 週價格區間</div>
+          <div class="range-bar-container">
+            <div class="range-labels">
+              <span id="low52w">115.0</span>
+              <span id="high52w">221.0</span>
+            </div>
+            <div class="range-track">
+              <div class="range-fill" id="rangeFill" style="left: 0%; width: 62%;"></div>
+              <div class="range-point" id="rangePoint" style="left: 62%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tabbed Navigation -->
+    <nav class="tabs-nav">
+      <button class="tab-btn active" data-tab="tabMasters" onclick="window.switchTab('tabMasters')">👑 四大家深度投研 (/investment-research)</button>
+      <button class="tab-btn" data-tab="tabKelly" onclick="window.switchTab('tabKelly')">⚡ TTM Squeeze & 凱利持倉引擎</button>
+      <button class="tab-btn" data-tab="tabEarnings" onclick="window.switchTab('tabEarnings')">📊 財報精讀與月營收 (/earnings-review)</button>
+      <button class="tab-btn" data-tab="tabValuation" onclick="window.switchTab('tabValuation')">⚖️ 多模型估值矩陣 (financial_rigor)</button>
+      <button class="tab-btn" data-tab="tabPeers" onclick="window.switchTab('tabPeers')">⚔️ 同業橫向對比 (Peer Comparison)</button>
+      <button class="tab-btn" data-tab="tabPortfolio" onclick="window.switchTab('tabPortfolio')">💼 投資組合模擬配置器 (Portfolio Simulator)</button>
+      <button class="tab-btn" data-tab="tabThesis" onclick="window.switchTab('tabThesis')">🎯 投資論文與持倉管理 (thesis-tracker)</button>
+      <button class="tab-btn" data-tab="tabScreener" onclick="window.switchTab('tabScreener')">📋 股票清單 (37檔全景看板)</button>
+      <button class="tab-btn" data-tab="tabMarkdown" onclick="window.switchTab('tabMarkdown')">📑 完整報告 Markdown 導出</button>
+    </nav>
+
+    <!-- Tab Contents -->
+    <!-- Tab 1: 4 Masters -->
+    <div class="tab-content active" id="tabMasters">
+      <div class="grid-2col">
+        <div class="card">
+          <div class="card-header">
+            <h3>四大家多維評分雷達</h3>
+            <span class="badge">巴菲特 · 芒格 · 段永平 · 李錄</span>
+          </div>
+          <div class="card-body">
+            <div class="radar-bars" id="radarBars"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3>AI 研究偏見自覺與品質控管</h3>
+            <span class="badge success" id="biasRating">A 級一手資訊</span>
+          </div>
+          <div class="card-body">
+            <p class="summary-text" id="biasText">
+              上市公司法說會、公開資訊觀測站 (MOPS) 完整財報與近 13 個月月營收全面齊全。已防範市場共識盲點，重點審視業務結構性成長、資本配置紀律與周期性供需邊際變化。
+            </p>
+            <div class="info-checklist">
+              <div class="check-item">✅ 核心財務雙源交叉驗算偏差 ≤ 1.0%</div>
+              <div class="check-item">✅ 精確手算市值與股本完全對齊</div>
+              <div class="check-item">✅ 反向 DCF 逆推隱含成長率合理性檢驗</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 Masters Detail Cards -->
+      <div class="masters-grid">
+        <!-- 段永平 -->
+        <div class="card master-card dyp">
+          <div class="card-header">
+            <div class="master-title">
+              <div class="master-avatar">段</div>
+              <div>
+                <h4>段永平視角：生意本質與定價權</h4>
+                <div class="master-score" id="dypScore">評分: 4.6 / 5.0</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="master-quote" id="dypQuote">「做對的事情，把事情做對。」</div>
+            <div class="section-block">
+              <h5>生意本質拆解</h5>
+              <p id="dypEssence"></p>
+            </div>
+            <div class="section-block">
+              <h5>做對的事情 (Right Thing)</h5>
+              <p id="dypRightThing"></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 巴菲特 -->
+        <div class="card master-card buffett">
+          <div class="card-header">
+            <div class="master-title">
+              <div class="master-avatar">巴</div>
+              <div>
+                <h4>巴菲特視角：經濟護城河與資本配置</h4>
+                <div class="master-score" id="buffettScore">評分: 4.4 / 5.0</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="master-quote" id="buffettQuote">「我喜歡在周期底部大舉擴充產能並在景氣復甦時爆發定價權的公司。」</div>
+            <div class="section-block">
+              <h5>經濟護城河評估</h5>
+              <p id="buffettMoat"></p>
+            </div>
+            <div class="section-block">
+              <h5>資本配置紀律</h5>
+              <p id="buffettCapital"></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 芒格 -->
+        <div class="card master-card munger">
+          <div class="card-header">
+            <div class="master-title">
+              <div class="master-avatar">芒</div>
+              <div>
+                <h4>芒格視角：逆向思考與反面清單</h4>
+                <div class="master-score" id="mungerScore">評分: 3.6 / 5.0</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="master-quote" id="mungerQuote">「別把周期的頂峰當作永恆的成長。」</div>
+            <div class="section-block">
+              <h5>反過來想 (Inversion)</h5>
+              <p id="mungerInversion"></p>
+            </div>
+            <div class="section-block">
+              <h5>核心風險清單</h5>
+              <ul class="risk-list" id="mungerRisks"></ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 李錄 -->
+        <div class="card master-card lilu">
+          <div class="card-header">
+            <div class="master-title">
+              <div class="master-avatar">李</div>
+              <div>
+                <h4>李錄視角：文明趨勢與長期確定性</h4>
+                <div class="master-score" id="liluScore">評分: 4.8 / 5.0</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="master-quote" id="liluQuote">「現代化就是算力與儲存密度的指數級下沉。」</div>
+            <div class="section-block">
+              <h5>文明進化與大趨勢</h5>
+              <p id="liluCivilization"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 2: TTM Squeeze & Kelly Engine -->
+    <div class="tab-content" id="tabKelly">
+      <div class="grid-2col">
+        <!-- TTM Squeeze Status Card -->
+        <div class="card">
+          <div class="card-header">
+            <h3>TTM Squeeze 波動率壓縮與動量狀態</h3>
+            <span class="badge" id="ttmSqueezeBadge">John Carter 動量模型</span>
+          </div>
+          <div class="card-body">
+            <div class="squeeze-status-box">
+              <div class="squeeze-lamp-row">
+                <div class="squeeze-lamp" id="squeezeLamp"></div>
+                <div class="squeeze-status-text" id="squeezeStatusText">🟡 波動率極致壓縮蓄勢中 (8 天)</div>
+              </div>
+              <p class="summary-text" id="squeezeDesc">
+                布林帶 (20, 2.0 SD) 正在肯特納通道 (20, 1.5 ATR) 內部收縮，市場波動率降至極低點，動量指標正在翻正向上，強烈醞釀爆發性方向突破！
+              </p>
+            </div>
+            <div class="squeeze-metrics-grid">
+              <div class="sq-metric-item">
+                <div class="sq-metric-title">連續壓縮天數</div>
+                <div class="sq-metric-value" id="sqDaysVal">8 天</div>
+              </div>
+              <div class="sq-metric-item">
+                <div class="sq-metric-title">動量斜率 (Slope)</div>
+                <div class="sq-metric-value highlight" id="sqMomVal">+18.50</div>
+              </div>
+              <div class="sq-metric-item">
+                <div class="sq-metric-title">動量方向</div>
+                <div class="sq-metric-value" id="sqMomDir">多頭上升 (Bullish Rising)</div>
+              </div>
+              <div class="sq-metric-item">
+                <div class="sq-metric-title">真實波幅 (ATR)</div>
+                <div class="sq-metric-value" id="sqAtrVal">7.85 元</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Expected Value (EV) Card -->
+        <div class="card">
+          <div class="card-header">
+            <h3>單筆交易數學期望值 (Expected Value)</h3>
+            <span class="badge success" id="evBadge">正期望值 Alpha 認證 ✅</span>
+          </div>
+          <div class="card-body">
+            <div class="ev-summary-box">
+              <div class="ev-highlight-row">
+                <span class="ev-label">每股數學期望值 (EV)：</span>
+                <span class="ev-val highlight" id="evAmountVal">+$22.70</span>
+              </div>
+              <div class="ev-sub-text" id="evRatioText">每承擔 $1.00 停損風險，期望回報 $1.513 元</div>
+            </div>
+            <div class="ev-details-list">
+              <div class="ev-detail-row">
+                <span>目標獲利空間 (R_win)：</span>
+                <strong id="evRewardVal">+$43.00 (目標價 220.0)</strong>
+              </div>
+              <div class="ev-detail-row">
+                <span>停損防守風險 (R_loss)：</span>
+                <strong id="evRiskVal">-$15.00 (停損價 162.0)</strong>
+              </div>
+              <div class="ev-detail-row">
+                <span>盈虧比 (Payoff Ratio, b)：</span>
+                <strong class="highlight" id="evPayoffVal">2.87 : 1 (優於 2.5:1 標準)</strong>
+              </div>
+              <div class="ev-detail-row">
+                <span>綜合預估勝率 (P_win)：</span>
+                <strong id="evWinRateVal">65.0% (基本面+技術面加權)</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Half Kelly Position Sizing Interactive Engine -->
+      <div class="card">
+        <div class="card-header">
+          <h3>半凱利公式 (Half Kelly) 實盤最佳持倉計算器</h3>
+          <span class="badge success">巴菲特式資本保護</span>
+        </div>
+        <div class="card-body">
+          <div class="kelly-interactive-grid">
+            <div class="kelly-inputs-col">
+              <div class="slider-group">
+                <label>帳戶總資金 (TWD/USD): <strong id="kCapitalLabel">1,000,000 元</strong></label>
+                <input type="number" id="kCapitalInput" class="kelly-input-number" value="1000000" step="50000" oninput="window.updateKellyCalculator()">
+              </div>
+              <div class="slider-group">
+                <label>預期勝率 (P_win): <strong id="kWinRateLabel">65%</strong></label>
+                <input type="range" id="kWinRateSlider" min="50" max="85" step="1" value="65" oninput="window.updateKellyCalculator()">
+              </div>
+              <div class="grid-2col" style="gap:8px;">
+                <div class="slider-group">
+                  <label>目標停利價:</label>
+                  <input type="number" id="kTargetInput" class="kelly-input-number" value="220" step="1" oninput="window.updateKellyCalculator()">
+                </div>
+                <div class="slider-group">
+                  <label>防守停損價:</label>
+                  <input type="number" id="kStopInput" class="kelly-input-number" value="162" step="1" oninput="window.updateKellyCalculator()">
+                </div>
+              </div>
+            </div>
+
+            <div class="kelly-results-col">
+              <div class="kelly-metric-card">
+                <div class="k-metric-title">半凱利建議持倉比例 (Half Kelly)</div>
+                <div class="k-metric-value highlight" id="kHalfKellyVal">20.0%</div>
+                <div class="k-metric-sub" id="kFullKellySub">全凱利理論值 52.8% · 實盤防禦上限 20%</div>
+              </div>
+              <div class="kelly-metric-card">
+                <div class="k-metric-title">建議配置資金</div>
+                <div class="k-metric-value" id="kAllocatedCapitalVal">200,000 元</div>
+                <div class="k-metric-sub">精確控制下檔風險</div>
+              </div>
+              <div class="kelly-metric-card">
+                <div class="k-metric-title">建議買進股數</div>
+                <div class="k-metric-value highlight" id="kSuggestedSharesVal">1,129 股</div>
+                <div class="k-metric-sub">約 1.13 張股票</div>
+              </div>
+              <div class="kelly-metric-card">
+                <div class="k-metric-title">單筆最大帳戶風險</div>
+                <div class="k-metric-value" id="kMaxLossVal">$16,935 元</div>
+                <div class="k-metric-sub" id="kAccountRiskPct">佔總帳戶 1.69% (安全防禦 ≤ 2%)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 3: Earnings -->
+    <div class="tab-content" id="tabEarnings">
+      <div class="card">
+        <div class="card-header">
+          <h3>最新財報亮點與管理層承諾追蹤</h3>
+          <span class="badge success" id="earningsHeadlineBadge">2026 最新財報</span>
+        </div>
+        <div class="card-body">
+          <h4 class="headline-title" id="earningsHeadline"></h4>
+          <p class="summary-text" id="earningsSummary"></p>
+        </div>
+      </div>
+
+      <!-- Monthly Revenue Chart -->
+      <div class="card">
+        <div class="card-header">
+          <h3>近 13 個月月營收趨勢與同比 (YoY) 拐點監控</h3>
+          <span class="badge">台股獨家領先指標 (每月10日前公布)</span>
+        </div>
+        <div class="card-body">
+          <div class="revenue-chart-container" id="revenueChartContainer"></div>
+        </div>
+      </div>
+
+      <!-- 5-Year Financial Statement -->
+      <div class="card">
+        <div class="card-header">
+          <h3>近 5 年核心財務表現與獲利率矩陣</h3>
+          <span class="badge">FinMind + 官方財報加總</span>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="data-table" id="financialsTable">
+              <thead>
+                <tr>
+                  <th>年度</th>
+                  <th>營收 (億)</th>
+                  <th>毛利率 (%)</th>
+                  <th>營業利益率 (%)</th>
+                  <th>歸母淨利 (億)</th>
+                  <th>EPS (元)</th>
+                  <th>ROE (簡化%)</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 3: Multi-Model Valuation -->
+    <div class="tab-content" id="tabValuation">
+      <div class="grid-2col">
+        <!-- Exact Market Cap Rigor -->
+        <div class="card">
+          <div class="card-header">
+            <h3>市值精確手算驗算 (Financial Rigor)</h3>
+            <span class="badge success">嚴禁 LLM 心算幻覺</span>
+          </div>
+          <div class="card-body">
+            <div class="rigor-box">
+              <div class="rigor-row">
+                <span class="rigor-label">最新收盤價：</span>
+                <span class="rigor-val" id="rigorPrice"></span>
+              </div>
+              <div class="rigor-row">
+                <span class="rigor-label">最新流通總股數：</span>
+                <span class="rigor-val" id="rigorShares"></span>
+              </div>
+              <div class="rigor-row highlight">
+                <span class="rigor-label">手算總市值：</span>
+                <span class="rigor-val" id="rigorCalcCap"></span>
+              </div>
+              <div class="rigor-formula" id="rigorFormula"></div>
+              <div class="rigor-status success" id="rigorStatus">
+                ✅ 驗算通過！手算值與報告市值偏差 0.00% ≤ 1.0%
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reverse DCF -->
+        <div class="card">
+          <div class="card-header">
+            <h3>模型一：反向 DCF 逆推模型</h3>
+            <span class="badge">自由現金流隱含成長率</span>
+          </div>
+          <div class="card-body">
+            <div class="dcf-interactive">
+              <div class="slider-group">
+                <label>加權平均資本成本 (WACC): <span id="waccVal">9.0%</span></label>
+                <input type="range" id="waccSlider" min="7.0" max="12.0" step="0.5" value="9.0" oninput="window.updateDCF()">
+              </div>
+              <div class="slider-group">
+                <label>永續成長率 (g): <span id="gVal">3.0%</span></label>
+                <input type="range" id="gSlider" min="1.5" max="4.5" step="0.5" value="3.0" oninput="window.updateDCF()">
+              </div>
+              <div class="dcf-result-box">
+                <div class="dcf-title">當前股價隱含未來 5 年 FCF 年化成長率</div>
+                <div class="dcf-growth" id="impliedGrowth">12.5%</div>
+                <div class="dcf-comment" id="dcfComment">評估：目前隱含成長率低於實際月營收動能，具備優良安全邊際！</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Advanced Multi-Model Grid -->
+      <div class="grid-3col" style="margin-top:16px;">
+        <div class="card">
+          <div class="card-header">
+            <h4>模型二：EV/EBITDA 企業倍數</h4>
+            <span class="badge">重資產代工適配</span>
+          </div>
+          <div class="card-body">
+            <div class="metric-value highlight" id="evEbitdaVal">11.8x</div>
+            <p class="summary-text">相較全球半導體硬體中位數 14.5x 處於折價區間，資本效率優良。</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h4>模型三：P/B 河流圖中樞</h4>
+            <span class="badge">週期景氣中樞</span>
+          </div>
+          <div class="card-body">
+            <div class="metric-value" id="pbRiverVal">中軸偏低位</div>
+            <p class="summary-text">歷史 PB 區間為 2.5x ~ 6.0x，當前處於歷史獲利擴張週期前半場。</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h4>模型四：葛拉漢安全邊際</h4>
+            <span class="badge success">90% 信賴區間</span>
+          </div>
+          <div class="card-body">
+            <div class="metric-value highlight" id="safetyMarginVal">32.5%</div>
+            <p class="summary-text">內在價值折現保守估算為現價 1.32 倍，具備充沛下檔防禦緩衝。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scenarios Matrix -->
+      <div class="card" style="margin-top:16px;">
+        <div class="card-header">
+          <h3>三情景估值預測矩陣 (Scenarios Matrix)</h3>
+          <span class="badge">樂觀 · 中性 · 悲觀</span>
+        </div>
+        <div class="card-body">
+          <div class="scenarios-grid" id="scenariosGrid"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 4: Peer Comparison -->
+    <div class="tab-content" id="tabPeers">
+      <div class="card">
+        <div class="card-header">
+          <h3>⚔️ 產業同業橫向對比矩陣 (Peer Comparison Matrix)</h3>
+          <div class="peer-selector-group">
+            <span style="font-size:13px; color:var(--text-secondary);">選擇板塊：</span>
+            <button class="peer-btn active" onclick="window.filterPeers('散熱', this)">散熱模組 (奇鋐 vs 健策)</button>
+            <button class="peer-btn" onclick="window.filterPeers('代工', this)">AI伺服器代工 (鴻海 vs 廣達 vs 緯穎)</button>
+            <button class="peer-btn" onclick="window.filterPeers('CCL', this)">高階CCL (台光電 vs 聯茂 vs 台燿)</button>
+            <button class="peer-btn" onclick="window.filterPeers('載板', this)">載板 (欣興 vs 景碩 vs 臻鼎)</button>
+            <button class="peer-btn" onclick="window.filterPeers('測試', this)">測試/探針卡 (旺矽 vs 穎崴 vs 京元電)</button>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="data-table peer-table" id="peerTable">
+              <thead>
+                <tr>
+                  <th style="text-align:left;">同業標的</th>
+                  <th>股價 (TWD)</th>
+                  <th>本益比 (PE)</th>
+                  <th>毛利率 (%)</th>
+                  <th>營業利益率 (%)</th>
+                  <th>預期 ROE (%)</th>
+                  <th>四大家評分</th>
+                  <th>護城河評估</th>
+                </tr>
+              </thead>
+              <tbody id="peerTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 5: Portfolio Simulator -->
+    <div class="tab-content" id="tabPortfolio">
+      <div class="grid-2col">
+        <div class="card">
+          <div class="card-header">
+            <h3>💼 投資組合持股與權重配置模擬器</h3>
+            <button id="btnResetPortfolio" class="btn-secondary btn-sm" onclick="window.resetPortfolio()">重置預設組合</button>
+          </div>
+          <div class="card-body">
+            <div class="portfolio-sliders" id="portfolioSliders"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3>整體組合加權綜合體檢</h3>
+            <span class="badge success">巴菲特式集中投資</span>
+          </div>
+          <div class="card-body">
+            <div class="portfolio-metrics-grid">
+              <div class="p-metric-card">
+                <div class="p-metric-title">組合加權預期 ROE</div>
+                <div class="p-metric-value" id="pWeightedROE">28.5%</div>
+                <div class="p-metric-sub">極高資本回報品質</div>
+              </div>
+              <div class="p-metric-card">
+                <div class="p-metric-title">組合加權前瞻 P/E</div>
+                <div class="p-metric-value" id="pWeightedPE">19.2x</div>
+                <div class="p-metric-sub">估值處於合理區間</div>
+              </div>
+              <div class="p-metric-card">
+                <div class="p-metric-title">平均股息殖利率</div>
+                <div class="p-metric-value" id="pWeightedYield">2.65%</div>
+                <div class="p-metric-sub">穩健現金流反哺</div>
+              </div>
+              <div class="p-metric-card">
+                <div class="p-metric-title">組合綜合護城河分級</div>
+                <div class="p-metric-value highlight" id="pWeightedMoat">4.6 / 5.0</div>
+                <div class="p-metric-sub">頂級文明剛性支柱</div>
+              </div>
+            </div>
+            <div class="portfolio-chart-box" id="portfolioChartBox" style="margin-top:16px;">
+              <div class="portfolio-bar-distribution" id="portfolioBarDist"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 6: Thesis Tracker -->
+    <div class="tab-content" id="tabThesis">
+      <div class="grid-2col">
+        <div class="card">
+          <div class="card-header">
+            <h3>核心投資論文三支柱 (Thesis Pillars)</h3>
+            <span class="badge success">買入的核心邏輯</span>
+          </div>
+          <div class="card-body">
+            <ul class="pillar-list" id="pillarList"></ul>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3>論文證偽與賣出清單 (Kill Criteria)</h3>
+            <span class="badge danger">觸發即嚴格停損/減倉</span>
+          </div>
+          <div class="card-body">
+            <ul class="kill-list" id="killList"></ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h3>分層操作價格區間與倉位配置計算器</h3>
+          <span class="badge">巴菲特紀律系統</span>
+        </div>
+        <div class="card-body">
+          <div class="allocation-grid" id="allocationGrid"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 7: 37 Stocks Screener Overview -->
+    <div class="tab-content" id="tabScreener">
+      <div class="card">
+        <div class="card-header">
+          <h3>📋 股票清單.xlsx 37 檔全景監控與多維評分總表</h3>
+          <div class="screener-filter-group" id="screenerFilterGroup">
+            <button class="filter-btn active" onclick="window.filterScreener('all', this)">全部 (37)</button>
+            <button class="filter-btn" onclick="window.filterScreener('BUY_STRONG', this)">🎯 強烈買入</button>
+            <button class="filter-btn" onclick="window.filterScreener('BUY_STEADY', this)">📈 穩健佈局</button>
+            <button class="filter-btn" onclick="window.filterScreener('HOLD', this)">⚪ 常態整理</button>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="data-table screener-table" id="screenerTable">
+              <thead>
+                <tr>
+                  <th class="sortable" onclick="window.sortScreener('symbol', this)" style="text-align:left;">
+                    <div class="th-content"><span>代碼 / 名稱</span><span class="sort-arrows"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></div>
+                  </th>
+                  <th class="sortable" onclick="window.sortScreener('sector', this)" style="text-align:left;">
+                    <div class="th-content"><span>所屬產業細分</span><span class="sort-arrows"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></div>
+                  </th>
+                  <th class="sortable" onclick="window.sortScreener('price', this)">
+                    <div class="th-content"><span>最新價 (TWD)</span><span class="sort-arrows"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></div>
+                  </th>
+                  <th class="sortable" onclick="window.sortScreener('change_pct', this)">
+                    <div class="th-content"><span>漲跌幅</span><span class="sort-arrows"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></div>
+                  </th>
+                  <th class="sortable" onclick="window.sortScreener('pe', this)">
+                    <div class="th-content"><span>本益比 (PE)</span><span class="sort-arrows"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></div>
+                  </th>
+                  <th class="sortable" onclick="window.sortScreener('market_cap', this)">
+                    <div class="th-content"><span>手算總市值</span><span class="sort-arrows"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></div>
+                  </th>
+                  <th class="sortable" onclick="window.sortScreener('ttm', this)">
+                    <div class="th-content"><span>TTM Squeeze 狀態</span><span class="sort-arrows"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></div>
+                  </th>
+                  <th class="sortable sort-desc" onclick="window.sortScreener('composite', this)">
+                    <div class="th-content"><span>四大家綜合評分</span><span class="sort-arrows"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></div>
+                  </th>
+                  <th class="sortable" onclick="window.sortScreener('verdict', this)">
+                    <div class="th-content"><span>決策評級</span><span class="sort-arrows"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></div>
+                  </th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody id="screenerTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 8: Markdown Report -->
+    <div class="tab-content" id="tabMarkdown">
+      <div class="card">
+        <div class="card-header">
+          <h3>完整深度投研 Markdown 報告</h3>
+          <div class="actions">
+            <button id="btnCopyMd" class="btn-secondary btn-sm" onclick="window.copyMarkdown()">複製 Markdown</button>
+            <button id="btnDownloadMd" class="btn-primary btn-sm" onclick="window.downloadMarkdown()">下載 .md 報告檔案</button>
+          </div>
+        </div>
+        <div class="card-body">
+          <pre class="markdown-preview" id="markdownPreview"><code>載入中...</code></pre>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="stocks_data.js?v=20260827_1"></script>
+  <script src="app.js?v=20260827_1"></script>
+</body>
+</html>
