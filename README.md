@@ -4,12 +4,15 @@
 > "反過來想，總是反過來想。" — Charlie Munger  
 > **用 AI 重新定義投研深度，以數學與紀律駕馭市場波動。**
 
-[![Test Suite](https://img.shields.io/badge/Tests-38%20Passed-success?style=flat-square&logo=python)](tests/)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-22c55e?style=flat-square&logo=github)](https://wenlee2025.github.io/ai-berkshire/)
+[![Test Suite](https://img.shields.io/badge/Tests-45%20Passed-success?style=flat-square&logo=python)](tests/)
 [![Supported Markets](https://img.shields.io/badge/Markets-US%20%7C%20Taiwan%20Equities-blue?style=flat-square)](tools/)
 [![AI Agents](https://img.shields.io/badge/AI%20Agents-Antigravity%20%7C%20Claude%20Code%20%7C%20Codex-8b5cf6?style=flat-square)](.agents/)
-[![Architecture](https://img.shields.io/badge/Architecture-ADR%200001~0004-orange?style=flat-square)](docs/adr/)
+[![Architecture](https://img.shields.io/badge/Architecture-ADR%200001~0007-orange?style=flat-square)](docs/adr/)
 
 **AI Berkshire** 是一套同時相容 **Google Antigravity**、**Claude Code** 與 **OpenAI Codex** 的現代化價值投資與量化決策操作系統。將巴菲特、芒格、段永平、李錄四位價值投資大師的方法論深度系統化，並融合 **TTM Squeeze 波動率壓縮動量策略**、**單筆交易數學期望值 (EV)** 與 **半凱利公式 (Half Kelly Sizing)** 資金管理模型，深耕**美股 (US Equities)** 與**台股 (Taiwan Equities)** 核心市場。
+
+🌐 **線上公開儀表板 (支援手機 & 電腦 24/7 查閱)**：[https://wenlee2025.github.io/ai-berkshire/](https://wenlee2025.github.io/ai-berkshire/)
 
 **一個人 + AI Agent = 一個配備頂級基本面護城河、量化動量擇時與數學倉位管制的機構級投研團隊。**
 
@@ -139,6 +142,9 @@ python -m unittest discover tests
 - [ADR 0002: 雙源交叉驗證與手算市值規範](docs/adr/0002-dual-source-rigor.md)
 - [ADR 0003: SQLite 數據快取層與統一 CLI 系統架構](docs/adr/0003-data-cache-and-unified-cli-architecture.md)
 - [ADR 0004: TTM Squeeze 策略、數學期望值與半凱利持倉決策架構](docs/adr/0004-ttm-squeeze-expected-value-kelly-sizing.md)
+- [ADR 0005: 深度模組架構與統一市場數據引擎](docs/adr/0005-deep-module-unified-market-data-engine.md)
+- [ADR 0006: 專注美股與台股雙市場架構與非核心市場清理](docs/adr/0006-exclusive-us-tw-market-focus-and-cny-purge.md)
+- [ADR 0007: GitHub Pages 雲端對外部署、行動端響應式適配與每日自動更新管線](docs/adr/0007-github-pages-deployment-and-mobile-ux.md)
 
 ---
 
@@ -146,6 +152,9 @@ python -m unittest discover tests
 
 ```text
 ai-berkshire/
+├── .github/workflows/            # GitHub Actions CI/CD 自動化管線
+│   ├── deploy-pages.yml          # 自動構建並發布至 GitHub Pages
+│   └── daily-update.yml          # 每日盤後自動拉取數據、計算並部署
 ├── ai_berkshire.py               # 統一根 CLI 分發器
 ├── CONTEXT.md                    # 領域模型、術語與指標規範
 ├── GEMINI.md                     # Google Antigravity 代理規範
@@ -155,13 +164,14 @@ ai-berkshire/
 ├── .agents/skills/               # Antigravity 技能封裝
 ├── codex-skills/                 # Codex 技能封裝
 ├── codex-prompts/                # Codex 快捷 Slash 提示詞
-├── dashboard/                    # 視覺化投研 Web 應用程式
-│   ├── index.html                # Dashboard 結構 (8 大功能模組)
-│   ├── style.css                 # 現代深色金融終端設計樣式
+├── dashboard/                    # 視覺化投研 Web 應用程式 (支援手機 & 電腦)
+│   ├── index.html                # Dashboard 結構 (8 大功能模組 & 多欄雙向排序)
+│   ├── style.css                 # 現代深色金融終端設計樣式 (全響應式 Mobile UX)
 │   ├── app.js                    # 前端互動、TTM Squeeze 與凱利計算引擎
 │   ├── stocks_data.js            # 37 檔全量離線同步數據庫
 │   └── stocks_db.json            # 完整 JSON 數據集
 ├── tools/                        # 財務數據工具與驗算引擎
+│   ├── market_data_engine.py     # 統一市場數據引擎 (Deep Module Pattern)
 │   ├── ttm_squeeze_kelly.py      # TTM Squeeze、期望值與凱利持倉引擎
 │   ├── data_cache.py             # SQLite 零依賴快取層 (data/berkshire.db)
 │   ├── pipeline_watcher.py       # 月營收異動與論文漂移自動預警
@@ -170,8 +180,8 @@ ai-berkshire/
 │   ├── stock_screener.py         # 台股/美股選股掃描器
 │   ├── twstock_data.py           # 台股 FinMind & MOPS 數據接口
 │   └── usstock_data.py           # 美股 Yahoo/SEC/Macrotrends 數據接口
-├── docs/adr/                     # 架構決策紀錄 (ADR 0001~0004)
-├── tests/                        # 完整單元測試套件 (38 個測試 100% 通過)
+├── docs/adr/                     # 架構決策紀錄 (ADR 0001~0007)
+├── tests/                        # 完整單元測試套件 (45 個測試 100% 通過)
 └── reports/                      # 歷史深度投研報告與警報庫
 ```
 
