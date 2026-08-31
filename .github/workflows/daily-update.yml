@@ -33,8 +33,7 @@ jobs:
       - name: Install Dependencies
         run: |
           python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-          pip install pandas openpyxl requests
+          pip install -r requirements.txt
 
       - name: Generate Fresh 37 Stocks Dataset
         run: |
@@ -44,7 +43,7 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add dashboard/stocks_data.js dashboard/stocks_db.json dashboard/index.html
+          git add dashboard/ docs/
           if ! git diff --staged --quiet; then
             git commit -m "chore(data): automated daily market dataset update [skip ci]"
             git push origin main
