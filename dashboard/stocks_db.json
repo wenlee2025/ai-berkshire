@@ -5,7 +5,7 @@
     "sector": "被動元件龍頭",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 635.0,
     "change_pct": -1.85,
     "shares_raw": 1000000000,
@@ -34,9 +34,9 @@
       "entry_signal": true,
       "bb_upper": 648.88,
       "bb_lower": 502.72,
-      "kc_upper": 639.57,
-      "kc_lower": 541.87,
-      "atr": 32.57
+      "kc_upper": 639.58,
+      "kc_lower": 541.9,
+      "atr": 32.56
     },
     "kelly_sizing": {
       "ev_data": {
@@ -267,7 +267,7 @@
     "sector": "被動元件龍頭",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 635.0,
     "change_pct": -1.85,
     "shares_raw": 1000000000,
@@ -296,9 +296,9 @@
       "entry_signal": true,
       "bb_upper": 648.88,
       "bb_lower": 502.72,
-      "kc_upper": 639.57,
-      "kc_lower": 541.87,
-      "atr": 32.57
+      "kc_upper": 639.58,
+      "kc_lower": 541.9,
+      "atr": 32.56
     },
     "kelly_sizing": {
       "ev_data": {
@@ -529,7 +529,7 @@
     "sector": "半導體靶材/貴金屬",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 103.5,
     "change_pct": -3.27,
     "shares_raw": 1000000000,
@@ -558,8 +558,8 @@
       "entry_signal": true,
       "bb_upper": 107.73,
       "bb_lower": 90.6,
-      "kc_upper": 107.41,
-      "kc_lower": 95.4,
+      "kc_upper": 107.42,
+      "kc_lower": 95.41,
       "atr": 4.0
     },
     "kelly_sizing": {
@@ -791,7 +791,7 @@
     "sector": "半導體靶材/貴金屬",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 103.5,
     "change_pct": -3.27,
     "shares_raw": 1000000000,
@@ -820,8 +820,8 @@
       "entry_signal": true,
       "bb_upper": 107.73,
       "bb_lower": 90.6,
-      "kc_upper": 107.41,
-      "kc_lower": 95.4,
+      "kc_upper": 107.42,
+      "kc_lower": 95.41,
       "atr": 4.0
     },
     "kelly_sizing": {
@@ -1053,7 +1053,7 @@
     "sector": "顯示驅動IC龍頭",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 531.0,
     "change_pct": 0.38,
     "shares_raw": 1000000000,
@@ -1315,7 +1315,7 @@
     "sector": "顯示驅動IC龍頭",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 531.0,
     "change_pct": 0.38,
     "shares_raw": 1000000000,
@@ -1577,7 +1577,7 @@
     "sector": "利基型DRAM/NOR",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 177.0,
     "change_pct": -1.39,
     "shares_raw": 4500000000,
@@ -1839,7 +1839,7 @@
     "sector": "利基型DRAM/NOR",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 177.0,
     "change_pct": -1.39,
     "shares_raw": 4500000000,
@@ -2101,7 +2101,7 @@
     "sector": "PCB軟板/載板",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 592.0,
     "change_pct": -0.5,
     "shares_raw": 1000000000,
@@ -2131,7 +2131,7 @@
       "bb_upper": 594.19,
       "bb_lower": 428.01,
       "kc_upper": 564.16,
-      "kc_lower": 485.25,
+      "kc_lower": 485.26,
       "atr": 26.3
     },
     "kelly_sizing": {
@@ -2363,7 +2363,7 @@
     "sector": "PCB軟板/載板",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 592.0,
     "change_pct": -0.5,
     "shares_raw": 1000000000,
@@ -2393,7 +2393,7 @@
       "bb_upper": 594.19,
       "bb_lower": 428.01,
       "kc_upper": 564.16,
-      "kc_lower": 485.25,
+      "kc_lower": 485.26,
       "atr": 26.3
     },
     "kelly_sizing": {
@@ -2625,7 +2625,7 @@
     "sector": "先進晶圓代工",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 2550.0,
     "change_pct": -1.35,
     "shares_raw": 25930000000,
@@ -2654,7 +2654,7 @@
       "entry_signal": true,
       "bb_upper": 2600.08,
       "bb_lower": 2352.92,
-      "kc_upper": 2564.47,
+      "kc_upper": 2564.46,
       "kc_lower": 2422.36,
       "atr": 47.37
     },
@@ -2887,7 +2887,7 @@
     "sector": "先進晶圓代工",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 2550.0,
     "change_pct": -1.35,
     "shares_raw": 25930000000,
@@ -2916,7 +2916,7 @@
       "entry_signal": true,
       "bb_upper": 2600.08,
       "bb_lower": 2352.92,
-      "kc_upper": 2564.47,
+      "kc_upper": 2564.46,
       "kc_lower": 2422.36,
       "atr": 47.37
     },
@@ -3149,7 +3149,7 @@
     "sector": "散熱模組/水冷板",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 3440.0,
     "change_pct": -2.96,
     "shares_raw": 1000000000,
@@ -3178,9 +3178,9 @@
       "entry_signal": false,
       "bb_upper": 3686.73,
       "bb_lower": 3142.77,
-      "kc_upper": 3666.06,
-      "kc_lower": 3179.72,
-      "atr": 162.12
+      "kc_upper": 3666.1,
+      "kc_lower": 3179.71,
+      "atr": 162.13
     },
     "kelly_sizing": {
       "ev_data": {
@@ -3411,7 +3411,7 @@
     "sector": "散熱模組/水冷板",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 3440.0,
     "change_pct": -2.96,
     "shares_raw": 1000000000,
@@ -3440,9 +3440,9 @@
       "entry_signal": false,
       "bb_upper": 3686.73,
       "bb_lower": 3142.77,
-      "kc_upper": 3666.06,
-      "kc_lower": 3179.72,
-      "atr": 162.12
+      "kc_upper": 3666.1,
+      "kc_lower": 3179.71,
+      "atr": 162.13
     },
     "kelly_sizing": {
       "ev_data": {
@@ -3673,7 +3673,7 @@
     "sector": "高階CCL銅箔基板",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 6000.0,
     "change_pct": 0.84,
     "shares_raw": 1000000000,
@@ -3702,9 +3702,9 @@
       "entry_signal": true,
       "bb_upper": 6011.35,
       "bb_lower": 4461.65,
-      "kc_upper": 5780.36,
-      "kc_lower": 4993.19,
-      "atr": 262.39
+      "kc_upper": 5780.39,
+      "kc_lower": 4993.28,
+      "atr": 262.37
     },
     "kelly_sizing": {
       "ev_data": {
@@ -3935,7 +3935,7 @@
     "sector": "高階CCL銅箔基板",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 6000.0,
     "change_pct": 0.84,
     "shares_raw": 1000000000,
@@ -3964,9 +3964,9 @@
       "entry_signal": true,
       "bb_upper": 6011.35,
       "bb_lower": 4461.65,
-      "kc_upper": 5780.36,
-      "kc_lower": 4993.19,
-      "atr": 262.39
+      "kc_upper": 5780.39,
+      "kc_lower": 4993.28,
+      "atr": 262.37
     },
     "kelly_sizing": {
       "ev_data": {
@@ -4197,7 +4197,7 @@
     "sector": "均熱片/散熱機構",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 7165.0,
     "change_pct": 5.29,
     "shares_raw": 1000000000,
@@ -4226,17 +4226,17 @@
       "entry_signal": true,
       "bb_upper": 7607.67,
       "bb_lower": 4906.33,
-      "kc_upper": 6944.11,
-      "kc_lower": 5880.58,
-      "atr": 354.51
+      "kc_upper": 6944.17,
+      "kc_lower": 5880.53,
+      "atr": 354.55
     },
     "kelly_sizing": {
       "ev_data": {
         "reward": 1791.2,
-        "risk": 638.1,
+        "risk": 638.2,
         "payoff_ratio": 2.81,
         "win_rate": 0.7,
-        "ev_amount": 1062.41,
+        "ev_amount": 1062.38,
         "ev_per_dollar": 1.665,
         "is_positive_ev": true
       },
@@ -4246,7 +4246,7 @@
       "applied_allocation_pct": 15.0,
       "allocated_capital": 150000.0,
       "suggested_shares": 20,
-      "max_loss_dollar": 12762.0,
+      "max_loss_dollar": 12764.0,
       "account_risk_pct": 1.28
     },
     "financials_5y": [
@@ -4459,7 +4459,7 @@
     "sector": "均熱片/散熱機構",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 7165.0,
     "change_pct": 5.29,
     "shares_raw": 1000000000,
@@ -4488,17 +4488,17 @@
       "entry_signal": true,
       "bb_upper": 7607.67,
       "bb_lower": 4906.33,
-      "kc_upper": 6944.11,
-      "kc_lower": 5880.58,
-      "atr": 354.51
+      "kc_upper": 6944.17,
+      "kc_lower": 5880.53,
+      "atr": 354.55
     },
     "kelly_sizing": {
       "ev_data": {
         "reward": 1791.2,
-        "risk": 638.1,
+        "risk": 638.2,
         "payoff_ratio": 2.81,
         "win_rate": 0.7,
-        "ev_amount": 1062.41,
+        "ev_amount": 1062.38,
         "ev_per_dollar": 1.665,
         "is_positive_ev": true
       },
@@ -4508,7 +4508,7 @@
       "applied_allocation_pct": 15.0,
       "allocated_capital": 150000.0,
       "suggested_shares": 20,
-      "max_loss_dollar": 12762.0,
+      "max_loss_dollar": 12764.0,
       "account_risk_pct": 1.28
     },
     "financials_5y": [
@@ -4721,7 +4721,7 @@
     "sector": "精密量測/自動化檢測",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 2330.0,
     "change_pct": -2.92,
     "shares_raw": 1000000000,
@@ -4750,9 +4750,9 @@
       "entry_signal": true,
       "bb_upper": 2470.71,
       "bb_lower": 2008.29,
-      "kc_upper": 2437.73,
-      "kc_lower": 2041.52,
-      "atr": 132.07
+      "kc_upper": 2437.77,
+      "kc_lower": 2041.59,
+      "atr": 132.06
     },
     "kelly_sizing": {
       "ev_data": {
@@ -4983,7 +4983,7 @@
     "sector": "精密量測/自動化檢測",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 2330.0,
     "change_pct": -2.92,
     "shares_raw": 1000000000,
@@ -5012,9 +5012,9 @@
       "entry_signal": true,
       "bb_upper": 2470.71,
       "bb_lower": 2008.29,
-      "kc_upper": 2437.73,
-      "kc_lower": 2041.52,
-      "atr": 132.07
+      "kc_upper": 2437.77,
+      "kc_lower": 2041.59,
+      "atr": 132.06
     },
     "kelly_sizing": {
       "ev_data": {
@@ -5245,7 +5245,7 @@
     "sector": "伺服器導軌龍頭",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 10615.0,
     "change_pct": -9.97,
     "shares_raw": 1000000000,
@@ -5274,9 +5274,9 @@
       "entry_signal": true,
       "bb_upper": 13356.17,
       "bb_lower": 11127.83,
-      "kc_upper": 13455.42,
-      "kc_lower": 11155.68,
-      "atr": 766.58
+      "kc_upper": 13455.23,
+      "kc_lower": 11155.59,
+      "atr": 766.55
     },
     "kelly_sizing": {
       "ev_data": {
@@ -5507,7 +5507,7 @@
     "sector": "伺服器導軌龍頭",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 10615.0,
     "change_pct": -9.97,
     "shares_raw": 1000000000,
@@ -5536,9 +5536,9 @@
       "entry_signal": true,
       "bb_upper": 13356.17,
       "bb_lower": 11127.83,
-      "kc_upper": 13455.42,
-      "kc_lower": 11155.68,
-      "atr": 766.58
+      "kc_upper": 13455.23,
+      "kc_lower": 11155.59,
+      "atr": 766.55
     },
     "kelly_sizing": {
       "ev_data": {
@@ -5769,7 +5769,7 @@
     "sector": "IC設計/邊緣AI",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 4690.0,
     "change_pct": -3.0,
     "shares_raw": 1000000000,
@@ -5798,17 +5798,17 @@
       "entry_signal": false,
       "bb_upper": 5332.34,
       "bb_lower": 4336.66,
-      "kc_upper": 5108.42,
-      "kc_lower": 4474.31,
-      "atr": 211.37
+      "kc_upper": 5108.38,
+      "kc_lower": 4474.4,
+      "atr": 211.33
     },
     "kelly_sizing": {
       "ev_data": {
         "reward": 1172.5,
-        "risk": 380.5,
+        "risk": 380.4,
         "payoff_ratio": 3.08,
         "win_rate": 0.65,
-        "ev_amount": 628.95,
+        "ev_amount": 628.99,
         "ev_per_dollar": 1.653,
         "is_positive_ev": true
       },
@@ -5818,7 +5818,7 @@
       "applied_allocation_pct": 15.0,
       "allocated_capital": 150000.0,
       "suggested_shares": 31,
-      "max_loss_dollar": 11796.0,
+      "max_loss_dollar": 11792.0,
       "account_risk_pct": 1.18
     },
     "financials_5y": [
@@ -6031,7 +6031,7 @@
     "sector": "IC設計/邊緣AI",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 4690.0,
     "change_pct": -3.0,
     "shares_raw": 1000000000,
@@ -6060,17 +6060,17 @@
       "entry_signal": false,
       "bb_upper": 5332.34,
       "bb_lower": 4336.66,
-      "kc_upper": 5108.42,
-      "kc_lower": 4474.31,
-      "atr": 211.37
+      "kc_upper": 5108.38,
+      "kc_lower": 4474.4,
+      "atr": 211.33
     },
     "kelly_sizing": {
       "ev_data": {
         "reward": 1172.5,
-        "risk": 380.5,
+        "risk": 380.4,
         "payoff_ratio": 3.08,
         "win_rate": 0.65,
-        "ev_amount": 628.95,
+        "ev_amount": 628.99,
         "ev_per_dollar": 1.653,
         "is_positive_ev": true
       },
@@ -6080,7 +6080,7 @@
       "applied_allocation_pct": 15.0,
       "allocated_capital": 150000.0,
       "suggested_shares": 31,
-      "max_loss_dollar": 11796.0,
+      "max_loss_dollar": 11792.0,
       "account_risk_pct": 1.18
     },
     "financials_5y": [
@@ -6293,7 +6293,7 @@
     "sector": "電源管理/伺服器電源",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 1965.0,
     "change_pct": -1.26,
     "shares_raw": 1000000000,
@@ -6322,9 +6322,9 @@
       "entry_signal": true,
       "bb_upper": 2090.55,
       "bb_lower": 1571.45,
-      "kc_upper": 1998.51,
-      "kc_lower": 1759.04,
-      "atr": 79.83
+      "kc_upper": 1998.5,
+      "kc_lower": 1759.08,
+      "atr": 79.81
     },
     "kelly_sizing": {
       "ev_data": {
@@ -6555,7 +6555,7 @@
     "sector": "電源管理/伺服器電源",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 1965.0,
     "change_pct": -1.26,
     "shares_raw": 1000000000,
@@ -6584,9 +6584,9 @@
       "entry_signal": true,
       "bb_upper": 2090.55,
       "bb_lower": 1571.45,
-      "kc_upper": 1998.51,
-      "kc_lower": 1759.04,
-      "atr": 79.83
+      "kc_upper": 1998.5,
+      "kc_lower": 1759.08,
+      "atr": 79.81
     },
     "kelly_sizing": {
       "ev_data": {
@@ -6817,7 +6817,7 @@
     "sector": "探針卡測試龍頭",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 5575.0,
     "change_pct": 0.81,
     "shares_raw": 1000000000,
@@ -6846,18 +6846,18 @@
       "entry_signal": false,
       "bb_upper": 5861.39,
       "bb_lower": 5099.61,
-      "kc_upper": 5864.52,
-      "kc_lower": 5058.56,
-      "atr": 268.66
+      "kc_upper": 5864.46,
+      "kc_lower": 5058.6,
+      "atr": 268.62
     },
     "kelly_sizing": {
       "ev_data": {
         "reward": 1393.8,
-        "risk": 483.6,
+        "risk": 483.5,
         "payoff_ratio": 2.88,
         "win_rate": 0.65,
-        "ev_amount": 736.71,
-        "ev_per_dollar": 1.523,
+        "ev_amount": 736.75,
+        "ev_per_dollar": 1.524,
         "is_positive_ev": true
       },
       "full_kelly_pct": 52.8,
@@ -6866,7 +6866,7 @@
       "applied_allocation_pct": 15.0,
       "allocated_capital": 150000.0,
       "suggested_shares": 26,
-      "max_loss_dollar": 12574.0,
+      "max_loss_dollar": 12571.0,
       "account_risk_pct": 1.26
     },
     "financials_5y": [
@@ -7079,7 +7079,7 @@
     "sector": "探針卡測試龍頭",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 5575.0,
     "change_pct": 0.81,
     "shares_raw": 1000000000,
@@ -7108,18 +7108,18 @@
       "entry_signal": false,
       "bb_upper": 5861.39,
       "bb_lower": 5099.61,
-      "kc_upper": 5864.52,
-      "kc_lower": 5058.56,
-      "atr": 268.66
+      "kc_upper": 5864.46,
+      "kc_lower": 5058.6,
+      "atr": 268.62
     },
     "kelly_sizing": {
       "ev_data": {
         "reward": 1393.8,
-        "risk": 483.6,
+        "risk": 483.5,
         "payoff_ratio": 2.88,
         "win_rate": 0.65,
-        "ev_amount": 736.71,
-        "ev_per_dollar": 1.523,
+        "ev_amount": 736.75,
+        "ev_per_dollar": 1.524,
         "is_positive_ev": true
       },
       "full_kelly_pct": 52.8,
@@ -7128,7 +7128,7 @@
       "applied_allocation_pct": 15.0,
       "allocated_capital": 150000.0,
       "suggested_shares": 26,
-      "max_loss_dollar": 12574.0,
+      "max_loss_dollar": 12571.0,
       "account_risk_pct": 1.26
     },
     "financials_5y": [
@@ -7341,7 +7341,7 @@
     "sector": "IC測試分選機",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 5925.0,
     "change_pct": 0.68,
     "shares_raw": 1000000000,
@@ -7370,18 +7370,18 @@
       "entry_signal": false,
       "bb_upper": 6693.43,
       "bb_lower": 5330.07,
-      "kc_upper": 6358.03,
-      "kc_lower": 5530.12,
-      "atr": 275.97
+      "kc_upper": 6357.96,
+      "kc_lower": 5530.33,
+      "atr": 275.87
     },
     "kelly_sizing": {
       "ev_data": {
         "reward": 1481.2,
-        "risk": 496.7,
+        "risk": 496.6,
         "payoff_ratio": 2.98,
         "win_rate": 0.65,
-        "ev_amount": 788.93,
-        "ev_per_dollar": 1.588,
+        "ev_amount": 788.97,
+        "ev_per_dollar": 1.589,
         "is_positive_ev": true
       },
       "full_kelly_pct": 53.3,
@@ -7390,7 +7390,7 @@
       "applied_allocation_pct": 15.0,
       "allocated_capital": 150000.0,
       "suggested_shares": 25,
-      "max_loss_dollar": 12418.0,
+      "max_loss_dollar": 12415.0,
       "account_risk_pct": 1.24
     },
     "financials_5y": [
@@ -7603,7 +7603,7 @@
     "sector": "IC測試分選機",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 5925.0,
     "change_pct": 0.68,
     "shares_raw": 1000000000,
@@ -7632,18 +7632,18 @@
       "entry_signal": false,
       "bb_upper": 6693.43,
       "bb_lower": 5330.07,
-      "kc_upper": 6358.03,
-      "kc_lower": 5530.12,
-      "atr": 275.97
+      "kc_upper": 6357.96,
+      "kc_lower": 5530.33,
+      "atr": 275.87
     },
     "kelly_sizing": {
       "ev_data": {
         "reward": 1481.2,
-        "risk": 496.7,
+        "risk": 496.6,
         "payoff_ratio": 2.98,
         "win_rate": 0.65,
-        "ev_amount": 788.93,
-        "ev_per_dollar": 1.588,
+        "ev_amount": 788.97,
+        "ev_per_dollar": 1.589,
         "is_positive_ev": true
       },
       "full_kelly_pct": 53.3,
@@ -7652,7 +7652,7 @@
       "applied_allocation_pct": 15.0,
       "allocated_capital": 150000.0,
       "suggested_shares": 25,
-      "max_loss_dollar": 12418.0,
+      "max_loss_dollar": 12415.0,
       "account_risk_pct": 1.24
     },
     "financials_5y": [
@@ -7865,7 +7865,7 @@
     "sector": "IC載板/BT載板",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 1075.0,
     "change_pct": -2.27,
     "shares_raw": 1000000000,
@@ -7895,8 +7895,8 @@
       "bb_upper": 1141.24,
       "bb_lower": 702.76,
       "kc_upper": 1037.62,
-      "kc_lower": 881.99,
-      "atr": 51.88
+      "kc_lower": 881.95,
+      "atr": 51.89
     },
     "kelly_sizing": {
       "ev_data": {
@@ -8127,7 +8127,7 @@
     "sector": "IC載板/BT載板",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 1075.0,
     "change_pct": -2.27,
     "shares_raw": 1000000000,
@@ -8157,8 +8157,8 @@
       "bb_upper": 1141.24,
       "bb_lower": 702.76,
       "kc_upper": 1037.62,
-      "kc_lower": 881.99,
-      "atr": 51.88
+      "kc_lower": 881.95,
+      "atr": 51.89
     },
     "kelly_sizing": {
       "ev_data": {
@@ -8389,7 +8389,7 @@
     "sector": "ABF載板龍頭",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 1270.0,
     "change_pct": -2.68,
     "shares_raw": 1000000000,
@@ -8418,7 +8418,7 @@
       "entry_signal": false,
       "bb_upper": 1391.49,
       "bb_lower": 840.71,
-      "kc_upper": 1247.2,
+      "kc_upper": 1247.21,
       "kc_lower": 1076.17,
       "atr": 57.01
     },
@@ -8651,7 +8651,7 @@
     "sector": "ABF載板龍頭",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 1270.0,
     "change_pct": -2.68,
     "shares_raw": 1000000000,
@@ -8680,7 +8680,7 @@
       "entry_signal": false,
       "bb_upper": 1391.49,
       "bb_lower": 840.71,
-      "kc_upper": 1247.2,
+      "kc_upper": 1247.21,
       "kc_lower": 1076.17,
       "atr": 57.01
     },
@@ -8913,7 +8913,7 @@
     "sector": "AI伺服器/筆電代工",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 325.5,
     "change_pct": -2.84,
     "shares_raw": 1000000000,
@@ -8943,27 +8943,27 @@
       "bb_upper": 346.68,
       "bb_lower": 326.82,
       "kc_upper": 346.57,
-      "kc_lower": 322.83,
-      "atr": 7.91
+      "kc_lower": 322.82,
+      "atr": 7.92
     },
     "kelly_sizing": {
       "ev_data": {
         "reward": 81.4,
-        "risk": 14.2,
-        "payoff_ratio": 5.73,
+        "risk": 14.3,
+        "payoff_ratio": 5.69,
         "win_rate": 0.65,
-        "ev_amount": 47.94,
-        "ev_per_dollar": 3.376,
+        "ev_amount": 47.9,
+        "ev_per_dollar": 3.35,
         "is_positive_ev": true
       },
-      "full_kelly_pct": 58.9,
+      "full_kelly_pct": 58.8,
       "half_kelly_pct": 29.4,
       "quarter_kelly_pct": 14.7,
       "applied_allocation_pct": 15.0,
       "allocated_capital": 150000.0,
       "suggested_shares": 460,
-      "max_loss_dollar": 6532.0,
-      "account_risk_pct": 0.65
+      "max_loss_dollar": 6578.0,
+      "account_risk_pct": 0.66
     },
     "financials_5y": [
       {
@@ -9175,7 +9175,7 @@
     "sector": "AI伺服器/筆電代工",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 325.5,
     "change_pct": -2.84,
     "shares_raw": 1000000000,
@@ -9205,27 +9205,27 @@
       "bb_upper": 346.68,
       "bb_lower": 326.82,
       "kc_upper": 346.57,
-      "kc_lower": 322.83,
-      "atr": 7.91
+      "kc_lower": 322.82,
+      "atr": 7.92
     },
     "kelly_sizing": {
       "ev_data": {
         "reward": 81.4,
-        "risk": 14.2,
-        "payoff_ratio": 5.73,
+        "risk": 14.3,
+        "payoff_ratio": 5.69,
         "win_rate": 0.65,
-        "ev_amount": 47.94,
-        "ev_per_dollar": 3.376,
+        "ev_amount": 47.9,
+        "ev_per_dollar": 3.35,
         "is_positive_ev": true
       },
-      "full_kelly_pct": 58.9,
+      "full_kelly_pct": 58.8,
       "half_kelly_pct": 29.4,
       "quarter_kelly_pct": 14.7,
       "applied_allocation_pct": 15.0,
       "allocated_capital": 150000.0,
       "suggested_shares": 460,
-      "max_loss_dollar": 6532.0,
-      "account_risk_pct": 0.65
+      "max_loss_dollar": 6578.0,
+      "account_risk_pct": 0.66
     },
     "financials_5y": [
       {
@@ -9437,7 +9437,7 @@
     "sector": "光學鏡頭霸主",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 6660.0,
     "change_pct": -2.7,
     "shares_raw": 1000000000,
@@ -9466,17 +9466,17 @@
       "entry_signal": true,
       "bb_upper": 7004.43,
       "bb_lower": 5772.07,
-      "kc_upper": 6901.11,
-      "kc_lower": 5938.81,
-      "atr": 320.77
+      "kc_upper": 6901.25,
+      "kc_lower": 5938.83,
+      "atr": 320.81
     },
     "kelly_sizing": {
       "ev_data": {
         "reward": 1665.0,
-        "risk": 577.4,
+        "risk": 577.5,
         "payoff_ratio": 2.88,
         "win_rate": 0.65,
-        "ev_amount": 880.16,
+        "ev_amount": 880.12,
         "ev_per_dollar": 1.524,
         "is_positive_ev": true
       },
@@ -9486,7 +9486,7 @@
       "applied_allocation_pct": 15.0,
       "allocated_capital": 150000.0,
       "suggested_shares": 22,
-      "max_loss_dollar": 12703.0,
+      "max_loss_dollar": 12705.0,
       "account_risk_pct": 1.27
     },
     "financials_5y": [
@@ -9699,7 +9699,7 @@
     "sector": "光學鏡頭霸主",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 6660.0,
     "change_pct": -2.7,
     "shares_raw": 1000000000,
@@ -9728,17 +9728,17 @@
       "entry_signal": true,
       "bb_upper": 7004.43,
       "bb_lower": 5772.07,
-      "kc_upper": 6901.11,
-      "kc_lower": 5938.81,
-      "atr": 320.77
+      "kc_upper": 6901.25,
+      "kc_lower": 5938.83,
+      "atr": 320.81
     },
     "kelly_sizing": {
       "ev_data": {
         "reward": 1665.0,
-        "risk": 577.4,
+        "risk": 577.5,
         "payoff_ratio": 2.88,
         "win_rate": 0.65,
-        "ev_amount": 880.16,
+        "ev_amount": 880.12,
         "ev_per_dollar": 1.524,
         "is_positive_ev": true
       },
@@ -9748,7 +9748,7 @@
       "applied_allocation_pct": 15.0,
       "allocated_capital": 150000.0,
       "suggested_shares": 22,
-      "max_loss_dollar": 12703.0,
+      "max_loss_dollar": 12705.0,
       "account_risk_pct": 1.27
     },
     "financials_5y": [
@@ -9961,7 +9961,7 @@
     "sector": "AI晶片測試龍頭",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 304.5,
     "change_pct": 1.67,
     "shares_raw": 1000000000,
@@ -9991,7 +9991,7 @@
       "bb_upper": 324.09,
       "bb_lower": 251.01,
       "kc_upper": 307.06,
-      "kc_lower": 271.05,
+      "kc_lower": 271.06,
       "atr": 12.0
     },
     "kelly_sizing": {
@@ -10223,7 +10223,7 @@
     "sector": "AI晶片測試龍頭",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 304.5,
     "change_pct": 1.67,
     "shares_raw": 1000000000,
@@ -10253,7 +10253,7 @@
       "bb_upper": 324.09,
       "bb_lower": 251.01,
       "kc_upper": 307.06,
-      "kc_lower": 271.05,
+      "kc_lower": 271.06,
       "atr": 12.0
     },
     "kelly_sizing": {
@@ -10485,7 +10485,7 @@
     "sector": "400G/800G交換器",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 2070.0,
     "change_pct": 2.73,
     "shares_raw": 1000000000,
@@ -10514,9 +10514,9 @@
       "entry_signal": true,
       "bb_upper": 2093.13,
       "bb_lower": 1734.37,
-      "kc_upper": 2111.68,
-      "kc_lower": 1821.16,
-      "atr": 96.84
+      "kc_upper": 2111.62,
+      "kc_lower": 1821.18,
+      "atr": 96.81
     },
     "kelly_sizing": {
       "ev_data": {
@@ -10747,7 +10747,7 @@
     "sector": "400G/800G交換器",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 2070.0,
     "change_pct": 2.73,
     "shares_raw": 1000000000,
@@ -10776,9 +10776,9 @@
       "entry_signal": true,
       "bb_upper": 2093.13,
       "bb_lower": 1734.37,
-      "kc_upper": 2111.68,
-      "kc_lower": 1821.16,
-      "atr": 96.84
+      "kc_upper": 2111.62,
+      "kc_lower": 1821.18,
+      "atr": 96.81
     },
     "kelly_sizing": {
       "ev_data": {
@@ -11009,7 +11009,7 @@
     "sector": "高階連接線束",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 2360.0,
     "change_pct": 1.94,
     "shares_raw": 1000000000,
@@ -11038,18 +11038,18 @@
       "entry_signal": false,
       "bb_upper": 2692.7,
       "bb_lower": 1784.8,
-      "kc_upper": 2482.04,
-      "kc_lower": 2126.22,
-      "atr": 118.61
+      "kc_upper": 2482.13,
+      "kc_lower": 2126.17,
+      "atr": 118.65
     },
     "kelly_sizing": {
       "ev_data": {
         "reward": 590.0,
-        "risk": 213.5,
+        "risk": 213.6,
         "payoff_ratio": 2.76,
         "win_rate": 0.65,
-        "ev_amount": 308.77,
-        "ev_per_dollar": 1.446,
+        "ev_amount": 308.74,
+        "ev_per_dollar": 1.445,
         "is_positive_ev": true
       },
       "full_kelly_pct": 52.3,
@@ -11058,7 +11058,7 @@
       "applied_allocation_pct": 15.0,
       "allocated_capital": 150000.0,
       "suggested_shares": 63,
-      "max_loss_dollar": 13450.0,
+      "max_loss_dollar": 13457.0,
       "account_risk_pct": 1.35
     },
     "financials_5y": [
@@ -11271,7 +11271,7 @@
     "sector": "高階連接線束",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 2360.0,
     "change_pct": 1.94,
     "shares_raw": 1000000000,
@@ -11300,18 +11300,18 @@
       "entry_signal": false,
       "bb_upper": 2692.7,
       "bb_lower": 1784.8,
-      "kc_upper": 2482.04,
-      "kc_lower": 2126.22,
-      "atr": 118.61
+      "kc_upper": 2482.13,
+      "kc_lower": 2126.17,
+      "atr": 118.65
     },
     "kelly_sizing": {
       "ev_data": {
         "reward": 590.0,
-        "risk": 213.5,
+        "risk": 213.6,
         "payoff_ratio": 2.76,
         "win_rate": 0.65,
-        "ev_amount": 308.77,
-        "ev_per_dollar": 1.446,
+        "ev_amount": 308.74,
+        "ev_per_dollar": 1.445,
         "is_positive_ev": true
       },
       "full_kelly_pct": 52.3,
@@ -11320,7 +11320,7 @@
       "applied_allocation_pct": 15.0,
       "allocated_capital": 150000.0,
       "suggested_shares": 63,
-      "max_loss_dollar": 13450.0,
+      "max_loss_dollar": 13457.0,
       "account_risk_pct": 1.35
     },
     "financials_5y": [
@@ -11533,7 +11533,7 @@
     "sector": "CCL銅箔基板",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 806.0,
     "change_pct": 1.26,
     "shares_raw": 1000000000,
@@ -11562,8 +11562,8 @@
       "entry_signal": true,
       "bb_upper": 810.67,
       "bb_lower": 395.73,
-      "kc_upper": 692.01,
-      "kc_lower": 583.58,
+      "kc_upper": 692.0,
+      "kc_lower": 583.57,
       "atr": 36.14
     },
     "kelly_sizing": {
@@ -11795,7 +11795,7 @@
     "sector": "CCL銅箔基板",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 806.0,
     "change_pct": 1.26,
     "shares_raw": 1000000000,
@@ -11824,8 +11824,8 @@
       "entry_signal": true,
       "bb_upper": 810.67,
       "bb_lower": 395.73,
-      "kc_upper": 692.01,
-      "kc_lower": 583.58,
+      "kc_upper": 692.0,
+      "kc_lower": 583.57,
       "atr": 36.14
     },
     "kelly_sizing": {
@@ -12057,7 +12057,7 @@
     "sector": "高階測試座Socket",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 5615.0,
     "change_pct": 1.72,
     "shares_raw": 1000000000,
@@ -12086,18 +12086,18 @@
       "entry_signal": false,
       "bb_upper": 7139.96,
       "bb_lower": 5196.04,
-      "kc_upper": 6624.58,
-      "kc_lower": 5556.15,
-      "atr": 356.15
+      "kc_upper": 6624.83,
+      "kc_lower": 5556.56,
+      "atr": 356.09
     },
     "kelly_sizing": {
       "ev_data": {
         "reward": 1403.8,
-        "risk": 641.1,
+        "risk": 641.0,
         "payoff_ratio": 2.19,
         "win_rate": 0.65,
-        "ev_amount": 688.09,
-        "ev_per_dollar": 1.073,
+        "ev_amount": 688.12,
+        "ev_per_dollar": 1.074,
         "is_positive_ev": true
       },
       "full_kelly_pct": 49.0,
@@ -12106,7 +12106,7 @@
       "applied_allocation_pct": 15.0,
       "allocated_capital": 150000.0,
       "suggested_shares": 26,
-      "max_loss_dollar": 16669.0,
+      "max_loss_dollar": 16666.0,
       "account_risk_pct": 1.67
     },
     "financials_5y": [
@@ -12319,7 +12319,7 @@
     "sector": "高階測試座Socket",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 5615.0,
     "change_pct": 1.72,
     "shares_raw": 1000000000,
@@ -12348,18 +12348,18 @@
       "entry_signal": false,
       "bb_upper": 7139.96,
       "bb_lower": 5196.04,
-      "kc_upper": 6624.58,
-      "kc_lower": 5556.15,
-      "atr": 356.15
+      "kc_upper": 6624.83,
+      "kc_lower": 5556.56,
+      "atr": 356.09
     },
     "kelly_sizing": {
       "ev_data": {
         "reward": 1403.8,
-        "risk": 641.1,
+        "risk": 641.0,
         "payoff_ratio": 2.19,
         "win_rate": 0.65,
-        "ev_amount": 688.09,
-        "ev_per_dollar": 1.073,
+        "ev_amount": 688.12,
+        "ev_per_dollar": 1.074,
         "is_positive_ev": true
       },
       "full_kelly_pct": 49.0,
@@ -12368,7 +12368,7 @@
       "applied_allocation_pct": 15.0,
       "allocated_capital": 150000.0,
       "suggested_shares": 26,
-      "max_loss_dollar": 16669.0,
+      "max_loss_dollar": 16666.0,
       "account_risk_pct": 1.67
     },
     "financials_5y": [
@@ -12581,7 +12581,7 @@
     "sector": "AI伺服器/電子代工",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 249.0,
     "change_pct": -1.19,
     "shares_raw": 14030000000,
@@ -12843,7 +12843,7 @@
     "sector": "AI伺服器/電子代工",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 249.0,
     "change_pct": -1.19,
     "shares_raw": 14030000000,
@@ -13105,7 +13105,7 @@
     "sector": "AI伺服器白牌",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 2240.0,
     "change_pct": 0.0,
     "shares_raw": 1000000000,
@@ -13134,8 +13134,8 @@
       "entry_signal": true,
       "bb_upper": 2366.96,
       "bb_lower": 2012.54,
-      "kc_upper": 2327.87,
-      "kc_lower": 2062.61,
+      "kc_upper": 2327.85,
+      "kc_lower": 2062.59,
       "atr": 88.42
     },
     "kelly_sizing": {
@@ -13367,7 +13367,7 @@
     "sector": "AI伺服器白牌",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 2240.0,
     "change_pct": 0.0,
     "shares_raw": 1000000000,
@@ -13396,8 +13396,8 @@
       "entry_signal": true,
       "bb_upper": 2366.96,
       "bb_lower": 2012.54,
-      "kc_upper": 2327.87,
-      "kc_lower": 2062.61,
+      "kc_upper": 2327.85,
+      "kc_lower": 2062.59,
       "atr": 88.42
     },
     "kelly_sizing": {
@@ -13629,7 +13629,7 @@
     "sector": "記憶體封測龍頭",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 308.0,
     "change_pct": 0.16,
     "shares_raw": 1000000000,
@@ -13658,8 +13658,8 @@
       "entry_signal": true,
       "bb_upper": 313.56,
       "bb_lower": 262.69,
-      "kc_upper": 309.62,
-      "kc_lower": 274.31,
+      "kc_upper": 309.63,
+      "kc_lower": 274.33,
       "atr": 11.77
     },
     "kelly_sizing": {
@@ -13891,7 +13891,7 @@
     "sector": "記憶體封測龍頭",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 308.0,
     "change_pct": 0.16,
     "shares_raw": 1000000000,
@@ -13920,8 +13920,8 @@
       "entry_signal": true,
       "bb_upper": 313.56,
       "bb_lower": 262.69,
-      "kc_upper": 309.62,
-      "kc_lower": 274.31,
+      "kc_upper": 309.63,
+      "kc_lower": 274.33,
       "atr": 11.77
     },
     "kelly_sizing": {
@@ -14153,7 +14153,7 @@
     "sector": "電源管理IC",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 462.5,
     "change_pct": 1.31,
     "shares_raw": 1000000000,
@@ -14182,8 +14182,8 @@
       "entry_signal": true,
       "bb_upper": 458.57,
       "bb_lower": 389.98,
-      "kc_upper": 457.62,
-      "kc_lower": 407.2,
+      "kc_upper": 457.63,
+      "kc_lower": 407.21,
       "atr": 16.81
     },
     "kelly_sizing": {
@@ -14415,7 +14415,7 @@
     "sector": "電源管理IC",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 462.5,
     "change_pct": 1.31,
     "shares_raw": 1000000000,
@@ -14444,8 +14444,8 @@
       "entry_signal": true,
       "bb_upper": 458.57,
       "bb_lower": 389.98,
-      "kc_upper": 457.62,
-      "kc_lower": 407.2,
+      "kc_upper": 457.63,
+      "kc_lower": 407.21,
       "atr": 16.81
     },
     "kelly_sizing": {
@@ -14677,7 +14677,7 @@
     "sector": "半導體封測全球龍頭",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 744.0,
     "change_pct": 1.64,
     "shares_raw": 1000000000,
@@ -14706,8 +14706,8 @@
       "entry_signal": true,
       "bb_upper": 772.75,
       "bb_lower": 576.45,
-      "kc_upper": 722.14,
-      "kc_lower": 649.96,
+      "kc_upper": 722.13,
+      "kc_lower": 649.95,
       "atr": 24.06
     },
     "kelly_sizing": {
@@ -14939,7 +14939,7 @@
     "sector": "半導體封測全球龍頭",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 744.0,
     "change_pct": 1.64,
     "shares_raw": 1000000000,
@@ -14968,8 +14968,8 @@
       "entry_signal": true,
       "bb_upper": 772.75,
       "bb_lower": 576.45,
-      "kc_upper": 722.14,
-      "kc_lower": 649.96,
+      "kc_upper": 722.13,
+      "kc_lower": 649.95,
       "atr": 24.06
     },
     "kelly_sizing": {
@@ -15201,7 +15201,7 @@
     "sector": "化合物半導體/砷化鎵",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 558.0,
     "change_pct": -0.18,
     "shares_raw": 1000000000,
@@ -15231,8 +15231,8 @@
       "bb_upper": 592.4,
       "bb_lower": 505.2,
       "kc_upper": 580.7,
-      "kc_lower": 505.6,
-      "atr": 25.03
+      "kc_lower": 505.59,
+      "atr": 25.04
     },
     "kelly_sizing": {
       "ev_data": {
@@ -15463,7 +15463,7 @@
     "sector": "化合物半導體/砷化鎵",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 558.0,
     "change_pct": -0.18,
     "shares_raw": 1000000000,
@@ -15493,8 +15493,8 @@
       "bb_upper": 592.4,
       "bb_lower": 505.2,
       "kc_upper": 580.7,
-      "kc_lower": 505.6,
-      "atr": 25.03
+      "kc_lower": 505.59,
+      "atr": 25.04
     },
     "kelly_sizing": {
       "ev_data": {
@@ -15725,7 +15725,7 @@
     "sector": "網通/音訊晶片龍頭",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 749.0,
     "change_pct": 1.08,
     "shares_raw": 1000000000,
@@ -15755,8 +15755,8 @@
       "bb_upper": 781.41,
       "bb_lower": 690.99,
       "kc_upper": 772.79,
-      "kc_lower": 711.98,
-      "atr": 20.27
+      "kc_lower": 711.96,
+      "atr": 20.28
     },
     "kelly_sizing": {
       "ev_data": {
@@ -15987,7 +15987,7 @@
     "sector": "網通/音訊晶片龍頭",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 749.0,
     "change_pct": 1.08,
     "shares_raw": 1000000000,
@@ -16017,8 +16017,8 @@
       "bb_upper": 781.41,
       "bb_lower": 690.99,
       "kc_upper": 772.79,
-      "kc_lower": 711.98,
-      "atr": 20.27
+      "kc_lower": 711.96,
+      "atr": 20.28
     },
     "kelly_sizing": {
       "ev_data": {
@@ -16249,7 +16249,7 @@
     "sector": "高階HDI板/低軌衛星",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 248.0,
     "change_pct": 0.81,
     "shares_raw": 1000000000,
@@ -16278,8 +16278,8 @@
       "entry_signal": true,
       "bb_upper": 249.4,
       "bb_lower": 208.05,
-      "kc_upper": 247.34,
-      "kc_lower": 218.59,
+      "kc_upper": 247.35,
+      "kc_lower": 218.6,
       "atr": 9.58
     },
     "kelly_sizing": {
@@ -16511,7 +16511,7 @@
     "sector": "高階HDI板/低軌衛星",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 248.0,
     "change_pct": 0.81,
     "shares_raw": 1000000000,
@@ -16540,8 +16540,8 @@
       "entry_signal": true,
       "bb_upper": 249.4,
       "bb_lower": 208.05,
-      "kc_upper": 247.34,
-      "kc_lower": 218.59,
+      "kc_upper": 247.35,
+      "kc_lower": 218.6,
       "atr": 9.58
     },
     "kelly_sizing": {
@@ -16773,7 +16773,7 @@
     "sector": "網通/車用網通設備",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 256.5,
     "change_pct": -0.39,
     "shares_raw": 1000000000,
@@ -17035,7 +17035,7 @@
     "sector": "網通/車用網通設備",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 256.5,
     "change_pct": -0.39,
     "shares_raw": 1000000000,
@@ -17297,7 +17297,7 @@
     "sector": "BMC伺服器晶片股王",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 17485.0,
     "change_pct": -1.49,
     "shares_raw": 1000000000,
@@ -17326,17 +17326,17 @@
       "entry_signal": false,
       "bb_upper": 20671.31,
       "bb_lower": 17039.69,
-      "kc_upper": 19949.95,
-      "kc_lower": 17178.36,
-      "atr": 923.86
+      "kc_upper": 19950.21,
+      "kc_lower": 17179.07,
+      "atr": 923.71
     },
     "kelly_sizing": {
       "ev_data": {
         "reward": 4371.2,
-        "risk": 1662.9,
+        "risk": 1662.7,
         "payoff_ratio": 2.63,
         "win_rate": 0.7,
-        "ev_amount": 2560.97,
+        "ev_amount": 2561.03,
         "ev_per_dollar": 1.54,
         "is_positive_ev": true
       },
@@ -17346,7 +17346,7 @@
       "applied_allocation_pct": 15.0,
       "allocated_capital": 150000.0,
       "suggested_shares": 8,
-      "max_loss_dollar": 13303.0,
+      "max_loss_dollar": 13302.0,
       "account_risk_pct": 1.33
     },
     "financials_5y": [
@@ -17559,7 +17559,7 @@
     "sector": "BMC伺服器晶片股王",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 17485.0,
     "change_pct": -1.49,
     "shares_raw": 1000000000,
@@ -17588,17 +17588,17 @@
       "entry_signal": false,
       "bb_upper": 20671.31,
       "bb_lower": 17039.69,
-      "kc_upper": 19949.95,
-      "kc_lower": 17178.36,
-      "atr": 923.86
+      "kc_upper": 19950.21,
+      "kc_lower": 17179.07,
+      "atr": 923.71
     },
     "kelly_sizing": {
       "ev_data": {
         "reward": 4371.2,
-        "risk": 1662.9,
+        "risk": 1662.7,
         "payoff_ratio": 2.63,
         "win_rate": 0.7,
-        "ev_amount": 2560.97,
+        "ev_amount": 2561.03,
         "ev_per_dollar": 1.54,
         "is_positive_ev": true
       },
@@ -17608,7 +17608,7 @@
       "applied_allocation_pct": 15.0,
       "allocated_capital": 150000.0,
       "suggested_shares": 8,
-      "max_loss_dollar": 13303.0,
+      "max_loss_dollar": 13302.0,
       "account_risk_pct": 1.33
     },
     "financials_5y": [
@@ -17821,7 +17821,7 @@
     "sector": "高階CCL銅箔基板",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 1740.0,
     "change_pct": 1.16,
     "shares_raw": 1000000000,
@@ -17850,9 +17850,9 @@
       "entry_signal": false,
       "bb_upper": 1785.07,
       "bb_lower": 1212.43,
-      "kc_upper": 1676.45,
-      "kc_lower": 1433.78,
-      "atr": 80.89
+      "kc_upper": 1676.44,
+      "kc_lower": 1433.8,
+      "atr": 80.88
     },
     "kelly_sizing": {
       "ev_data": {
@@ -18083,7 +18083,7 @@
     "sector": "高階CCL銅箔基板",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 1740.0,
     "change_pct": 1.16,
     "shares_raw": 1000000000,
@@ -18112,9 +18112,9 @@
       "entry_signal": false,
       "bb_upper": 1785.07,
       "bb_lower": 1212.43,
-      "kc_upper": 1676.45,
-      "kc_lower": 1433.78,
-      "atr": 80.89
+      "kc_upper": 1676.44,
+      "kc_lower": 1433.8,
+      "atr": 80.88
     },
     "kelly_sizing": {
       "ev_data": {
@@ -18345,7 +18345,7 @@
     "sector": "電子代工/伺服器",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 35.5,
     "change_pct": -1.66,
     "shares_raw": 1000000000,
@@ -18607,7 +18607,7 @@
     "sector": "電子代工/伺服器",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 35.5,
     "change_pct": -1.66,
     "shares_raw": 1000000000,
@@ -18869,7 +18869,7 @@
     "sector": "成熟製程晶圓代工",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 147.5,
     "change_pct": -0.67,
     "shares_raw": 1000000000,
@@ -19131,7 +19131,7 @@
     "sector": "成熟製程晶圓代工",
     "market": "TW",
     "currency": "TWD",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "price": 147.5,
     "change_pct": -0.67,
     "shares_raw": 1000000000,
